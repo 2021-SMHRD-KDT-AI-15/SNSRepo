@@ -14,6 +14,7 @@ public class BoardDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		int cnt = sqlSession.insert("upload", dto);
+		System.out.println(cnt); 
 		
 		sqlSession.close();
 		
