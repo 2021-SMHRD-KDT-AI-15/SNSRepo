@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ProjectSNS</groupId>
   <artifactId>ProjectSNS</artifactId>
@@ -16,7 +18,7 @@
 	</dependency>
   
   
-  <!-- servlet 라이브러리 -->
+	<!-- servlet 라이브러리 -->
 	<dependency>
 	<groupId>javax.servlet</groupId>
 	<artifactId>javax.servlet-api</artifactId>
@@ -24,20 +26,27 @@
 	<scope>provided</scope>
 	</dependency>
 	  
-	  <!-- ojdbc6 라이브러리 -->
+	<!-- ojdbc6 라이브러리 -->
 	<dependency>
 	<groupId>com.oracle.database.jdbc</groupId>
 	<artifactId>ojdbc6</artifactId>
 	<version>11.2.0.4</version>
 	</dependency>
 	  
-	  <!-- 파일 업로드를 위한 cos 라이브러리 -->
-	  <!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
-	 <dependency>
-	 <groupId>com.jfinal</groupId>
-	 <artifactId>cos</artifactId>
-	 <version>2020.4</version>
-	 </dependency>
+	<!-- JSTL 라이브러리 -->
+	<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+	</dependency>
+	  
+	<!-- 파일 업로드를 위한 cos 라이브러리 -->
+	<!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
+	<dependency>
+	<groupId>com.jfinal</groupId>
+	<artifactId>cos</artifactId>
+	<version>2020.4</version>
+	</dependency>
 	  
   </dependencies>
   
