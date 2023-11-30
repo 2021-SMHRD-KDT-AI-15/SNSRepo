@@ -3,18 +3,18 @@
 <mapper namespace="sns.db.MatchMapper">
 
 	<select id="filter_basic" parameterType="sns.model.MatchDTO" resultType="sns.model.MatchDTO">
-		select * 
+		select member_id, name, dis, gender, rating_person 
 		from basic_info 
 		where gender in (#{gender}) 
-			and rating_person >= #{rating} 
+			and rating_person >= #{rating_person} 
 			and member_id in (select member_id from hope_area where area=#{area}) 
-			and member_id in (select member_id from interest where #{interest} >= #{intermmr})
+			and member_id in (select member_id from interest where #{interest} is not null)
 	</select>
 	
 	<select id="filter_group" parameterType="sns.model.MatchDTO" resultType="sns.model.MatchDTO">
 		select * 
 		from p_group 
-		where rating_group >= #{rating} 
+		where rating_group >= #{rating_group} 
 			and member_id in (select group_id from hope_area where area=#{area}) 
 			and member_id in (select group_id from interest where #{interest} >= #{intermmr})
 	</select>

@@ -8,26 +8,48 @@ public class MatchDTO {
 	private String img;
 	private String dis;
 	private String gender;
-	private int rating;
+	private int rating_person;
 	private int rating_group;
 	private String group_info;
 	private String area;
 	private String interest;
-	
-	
-	public MatchDTO(String member_id, String name, String img, String dis, String gender, int rating) {
+
+
+	public MatchDTO(String member_id, String group_id, String name, String img, String dis, String gender,
+			int rating_person, int rating_group, String group_info, String area, String interest) {
+		this.member_id = member_id;
+		this.group_id = group_id;
+		this.name = name;
+		this.img = img;
+		this.dis = dis;
+		this.gender = gender;
+		this.rating_person = rating_person;
+		this.rating_group = rating_group;
+		this.group_info = group_info;
+		this.area = area;
+		this.interest = interest;
+	}
+
+	public MatchDTO(String member_id, String name, String dis, String gender, int rating_person) {
+		this.member_id = member_id;
+		this.name = name;
+		this.dis = dis;
+		this.gender = gender;
+		this.rating_person = rating_person;
+	}
+
+	public MatchDTO(String member_id, String name, String img, String dis, String gender, int rating_person) {
 		this.member_id = member_id;
 		this.name = name;
 		this.img = img;
 		this.dis = dis;
 		this.gender = gender;
-		this.rating = rating;
+		this.rating_person = rating_person;
 	}
 
-	public MatchDTO(String gender, int rating, String area, String interest) {
-		super();
+	public MatchDTO(String gender, int rating_person, String area, String interest) {
 		this.gender = gender;
-		this.rating = rating;
+		this.rating_person = rating_person;
 		this.area = area;
 		this.interest = interest;
 	}
@@ -86,12 +108,28 @@ public class MatchDTO {
 		this.gender = gender;
 	}
 
-	public int getRating() {
-		return rating;
+	public int getRating_person() {
+		return rating_person;
 	}
 
-	public void setRating(int rating) {
-		this.rating = rating;
+	public void setRating_person(int rating_person) {
+		this.rating_person = rating_person;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getInterest() {
+		return interest;
+	}
+
+	public void setInterest(String interest) {
+		this.interest = interest;
 	}
 
 	public int getRating_group() {
@@ -109,5 +147,5 @@ public class MatchDTO {
 	public void setGroup_info(String group_info) {
 		this.group_info = group_info;
 	}
-	
+
 }

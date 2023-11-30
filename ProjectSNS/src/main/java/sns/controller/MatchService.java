@@ -20,13 +20,13 @@ public class MatchService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String gender = request.getParameter("gender");
-		int rating = Integer.parseInt(request.getParameter("rating_person"));
+		int rating_person = Integer.parseInt(request.getParameter("rating_person"));
 		String area = request.getParameter("area");
 		String interest = request.getParameter("interest");
 		
 		MatchDAO dao = new MatchDAO();
 		
-		MatchDTO dto = new MatchDTO(gender, rating, area, interest);
+		MatchDTO dto = new MatchDTO(gender, rating_person, area, interest);
 		
 		ArrayList<MatchDTO> a_list = new ArrayList<>();
 
