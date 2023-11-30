@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sns.db.MemberMapper">
+
+
+	<insert id="join" parameterType="sns.model.MemberDTO">
+		insert into basic_info 
+		values(#{Member_id}, #{pw}, #{name}, #{mail}, #{birth}, null, #{dis}, #{gender}, #{location}, #{rating_person})
+	</insert>
+
+	<select id="login" parameterType="sns.model.MemberDTO"
+		resultType="sns.model.MemberDTO">
+		select * from basic_info where Member_id=#{Member_id} and pw=#{pw}
+	</select>
+
+
+</mapper>
