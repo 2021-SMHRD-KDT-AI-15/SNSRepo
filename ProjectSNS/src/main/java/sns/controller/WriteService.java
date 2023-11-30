@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import sns.model.BoardDAO;
+import sns.model.BoardDTO;
+
 @WebServlet("/WriteService")
 public class WriteService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,13 +43,13 @@ public class WriteService extends HttpServlet {
 	String attachment = URLEncoder.encode(multi.getFilesystemName("attachment"), "utf-8");
 	
 	System.out.println(member_id + "+" +title+ "+" +content+ "+" +like_count+ "+" +attachment);
-//	
-//	BoardDAO dao = new BoardDAO();
-//	BoardDTO dto = new BoardDTO(member_id, title, content, attachment, like_count);
-//	
-//	int cnt = dao.upload(dto);
-//	
 	
+	BoardDAO dao = new BoardDAO();
+	BoardDTO dto = new BoardDTO(member_id, title, content, attachment, like_count);
+	
+	int cnt = dao.upload(dto);
+	
+
 	
 	
 	

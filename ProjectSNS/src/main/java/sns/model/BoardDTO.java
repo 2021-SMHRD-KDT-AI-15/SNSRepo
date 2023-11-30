@@ -9,12 +9,12 @@ public class BoardDTO {
 	private String content;
 	private String date_created;
 	private String attachment;
-	private int like_count;
+	private String like_count;
 
 	
 	
 	public BoardDTO(String member_id, String group_id, int content_id, String title, String content, String date_created,
-			String attachment, int like_count) {
+			String attachment, String like_count) {
 		this.member_id = member_id;
 		this.group_id = group_id;
 		this.content_id = content_id;
@@ -27,7 +27,11 @@ public class BoardDTO {
 
 	
 	public BoardDTO(String member_id, String title, String content, String attachment, String like_count) {
-		
+		this.member_id = member_id;
+		this.title = title;
+		this.content = content;
+		this.attachment = attachment;
+		this.like_count = like_count;
 	}
 
 	public BoardDTO() {
@@ -119,13 +123,13 @@ public class BoardDTO {
 
 
 
-	public int getLike_count() {
+	public String getLike_count() {
 		return like_count;
 	}
 
 
 
-	public void setLike_count(int like_count) {
+	public void setLike_count(String like_count) {
 		this.like_count = like_count;
 	}
 
