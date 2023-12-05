@@ -9,4 +9,17 @@
 		insert into content values(#{member_id},null, num_board.nextval,#{title},#{content},sysdate, #{attachment},#{like_count} )
 	</insert>
 
+
+	<select id="detail" resultType = "sns.model.BoardDTO">
+		select * from content where content_id=#{content_id}
+	</select>
+	
+	<select id = "list" resultType="sns.model.BoardDTO">
+		select * from content
+	</select>
+	
+	<select id="count" resultType="int">
+    SELECT COUNT(*) FROM content
+</select>
+	
 </mapper>
