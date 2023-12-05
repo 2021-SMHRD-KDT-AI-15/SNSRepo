@@ -34,10 +34,6 @@ public class BoardDTO {
 		this.like_count = like_count;
 	}
 
-	public BoardDTO() {
-		
-	}
-	
 
 	public String getMember_id() {
 		return member_id;

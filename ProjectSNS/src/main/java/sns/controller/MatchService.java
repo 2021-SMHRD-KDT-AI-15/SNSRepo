@@ -20,20 +20,23 @@ public class MatchService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String gender = request.getParameter("gender");
-		int rating_person = Integer.parseInt(request.getParameter("rating_person"));
+		int rating = Integer.parseInt(request.getParameter("rating"));
 		String area = request.getParameter("area");
 		String interest = request.getParameter("interest");
 		
 		MatchDAO dao = new MatchDAO();
 		
-		MatchDTO dto = new MatchDTO(gender, rating_person, area, interest);
+		MatchDTO p_dto = new MatchDTO(gender, rating, area, interest);
+		MatchDTO g_dto = new MatchDTO(rating, area, interest);
 		
-		ArrayList<MatchDTO> a_list = new ArrayList<>();
+		ArrayList<MatchDTO> p_list = new ArrayList<>();
+		ArrayList<MatchDTO> g_list = new ArrayList<>();
 
-		a_list = dao.user_list(dto);
+		p_list = dao.user_list(p_dto);
+		g_list = dao.group_list(g_dto);
 
-
-		request.setAttribute("list", a_list);
+		request.setAttribute("p_list", p_list);
+		request.setAttribute("g_list", g_list);
 		RequestDispatcher rd = request.getRequestDispatcher("MatchList.jsp");
 		rd.forward(request, response);
 				
