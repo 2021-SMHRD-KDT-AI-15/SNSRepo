@@ -2,62 +2,74 @@ package sns.model;
 
 public class MatchDTO {
 
+	private String id;
 	private String member_id;
+	private String req_id;
 	private String group_id;
+	private String moim_id;
 	private String name;
 	private String img;
 	private String dis;
 	private String gender;
-	private int rating_person;
-	private int rating_group;
 	private String group_info;
 	private String area;
 	private String interest;
-
-
-	public MatchDTO(String member_id, String group_id, String name, String img, String dis, String gender,
-			int rating_person, int rating_group, String group_info, String area, String interest) {
-		this.member_id = member_id;
-		this.group_id = group_id;
-		this.name = name;
-		this.img = img;
-		this.dis = dis;
-		this.gender = gender;
-		this.rating_person = rating_person;
-		this.rating_group = rating_group;
-		this.group_info = group_info;
-		this.area = area;
-		this.interest = interest;
+	private int rating;
+	
+	public MatchDTO() {
 	}
 
-	public MatchDTO(String member_id, String name, String dis, String gender, int rating_person) {
-		this.member_id = member_id;
-		this.name = name;
-		this.dis = dis;
-		this.gender = gender;
-		this.rating_person = rating_person;
-	}
-
-	public MatchDTO(String member_id, String name, String img, String dis, String gender, int rating_person) {
+	public MatchDTO(String member_id, String name, String img, String dis, String gender, int rating) {
 		this.member_id = member_id;
 		this.name = name;
 		this.img = img;
 		this.dis = dis;
 		this.gender = gender;
-		this.rating_person = rating_person;
+		this.rating = rating;
 	}
 
-	public MatchDTO(String gender, int rating_person, String area, String interest) {
+	public MatchDTO(String id) {
+		this.id = id;
+	}
+
+	public MatchDTO(String id, String req_id) {
+		this.id = id;
+		this.req_id = req_id;
+	}
+	
+	public MatchDTO(String gender, int rating, String area, String interest) {
 		this.gender = gender;
-		this.rating_person = rating_person;
+		this.rating = rating;
 		this.area = area;
 		this.interest = interest;
 	}
 
-	public MatchDTO(String group_id, int rating_group, String group_info) {
+	public MatchDTO(int rating, String area, String interest) {
+		this.rating = rating;
+		this.area = area;
+		this.interest = interest;
+	}
+
+	public MatchDTO(String member_id, String name, String dis, String gender, int rating) {
+		this.member_id = member_id;
+		this.name = name;
+		this.dis = dis;
+		this.gender = gender;
+		this.rating = rating;
+	}
+
+	public MatchDTO(String group_id, String group_info, int rating) {
 		this.group_id = group_id;
-		this.rating_group = rating_group;
 		this.group_info = group_info;
+		this.rating = rating;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getMember_id() {
@@ -108,12 +120,20 @@ public class MatchDTO {
 		this.gender = gender;
 	}
 
-	public int getRating_person() {
-		return rating_person;
+	public int getRating() {
+		return rating;
 	}
 
-	public void setRating_person(int rating_person) {
-		this.rating_person = rating_person;
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public String getGroup_info() {
+		return group_info;
+	}
+
+	public void setGroup_info(String group_info) {
+		this.group_info = group_info;
 	}
 
 	public String getArea() {
@@ -132,20 +152,20 @@ public class MatchDTO {
 		this.interest = interest;
 	}
 
-	public int getRating_group() {
-		return rating_group;
+	public String getReq_id() {
+		return req_id;
 	}
 
-	public void setRating_group(int rating_group) {
-		this.rating_group = rating_group;
+	public void setReq_id(String req_id) {
+		this.req_id = req_id;
 	}
 
-	public String getGroup_info() {
-		return group_info;
+	public String getMoim_id() {
+		return moim_id;
 	}
 
-	public void setGroup_info(String group_info) {
-		this.group_info = group_info;
+	public void setMoim_id(String moim_id) {
+		this.moim_id = moim_id;
 	}
 
 }
