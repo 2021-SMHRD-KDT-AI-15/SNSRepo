@@ -30,6 +30,7 @@
         <% 
         ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
         ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");
+        System.out.println(comment_list.size());
         for (int i = 0; i <= 7; i++) { %>
             <!-- 각 게시물 내용 표시 -->
             <% if (i < 3) { %>
@@ -52,11 +53,17 @@
                 <hr>
                 <b>댓글 작성자</b>
                 <br>
-                <b><%= comment_list.get(i).getComment_id() %></b>
-                <b>댓글 내용</b>
-                <br>
-                <b><%= comment_list.get(i).getP_comment() %></b>
-                <hr>
+                <% 
+                	for(int j = 0; j < 4; j++){
+                	if(content_list.get(i).getContent_id() == Integer.parseInt(comment_list.get(j).getComment_id())){%>
+		                <b><%= comment_list.get(i).getComment_id() %></b>
+		                <b>댓글 내용</b>
+		                <br>
+		                <b><%= comment_list.get(i).getP_comment() %></b>
+		                <%} %>
+		                <%}%>
+		                
+	                <hr> 
             <% }else if(3<= i && i <= 5 ){ %>
                 
                 <div class="hidden" style="display: none;">
@@ -97,9 +104,10 @@
                 <b>테스트</b>
                 <b id="test_<%= i %>">123</b>
                 <hr>
-            </div> %>
+            </div>
         <% } %>
         <% } %>
+        
     </div>
 
     <!-- Show more button -->
