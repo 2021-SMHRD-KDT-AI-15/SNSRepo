@@ -39,6 +39,7 @@ public class commentOut extends HttpServlet {
 		
 		}
 		
+		System.out.println(b_list);
 		request.setAttribute("c_result", b_list);
 		RequestDispatcher rd = request.getRequestDispatcher("BoardMain.jsp");
 		rd.forward(request, response);

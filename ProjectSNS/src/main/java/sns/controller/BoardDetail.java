@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import sns.model.BoardDAO;
 import sns.model.BoardDTO;
+import sns.model.commentDAO;
+import sns.model.commentDTO;
 
 @WebServlet("/BoardDetail")
 public class BoardDetail extends HttpServlet {
@@ -40,6 +42,30 @@ public class BoardDetail extends HttpServlet {
 	
 	}
 	
+	/////////////////////////////////////////////////////////////////////
+	
+	int comment_id = 0;
+	
+	ArrayList<commentDTO> b_list2 = new ArrayList<>();
+	commentDAO dao2 = new commentDAO();
+	int count2 = dao2.c_count();
+	
+	for(int i = 1; i <= count; i++) {
+		comment_id = i;
+	
+		// 카운트 수정해야함..
+		
+	commentDTO result = dao2.detail(comment_id);
+	
+	// 결과값으로 설정을 하는거니까
+	
+	b_list2.add(result);
+	
+	}
+	
+	System.out.println(b_list);
+	
+	//////////////////////////////////////////////////////////////////////
 	
 	System.out.println(b_list);
 	request.setAttribute("result", b_list);

@@ -8,15 +8,19 @@
 <html>
 <head>
     <title>Content List</title>
-    <script>
-        function showMore() {
-            var moreItems = document.getElementsByClassName('hidden');
-            for (var i = 0; i < moreItems.length; i++) {
-                moreItems[i].style.display = 'block';
-            }
-          //  document.getElementById('more').style.display = 'none';
+ <script>
+    let 시작인덱스 = 0; // 컨텐츠 표시를 시작할 인덱스를 초기화합니다.
+
+    function 더보기() {
+        const 게시글들 = document.querySelectorAll('.hidden');
+        
+        for (let i = 시작인덱스; i < 시작인덱스 + 3 && i < 게시글들.length; i++) {
+            게시글들[i].style.display = 'block';
         }
-    </script>
+
+        시작인덱스 += 3; // 다음 컨텐츠를 위해 시작 인덱스를 업데이트합니다.
+    }
+</script>
 </head>
 
 
@@ -25,6 +29,7 @@
         <!-- 여기에 초기 게시물을 표시합니다. -->
         <% 
         ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
+        ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");
         for (int i = 0; i <= 7; i++) { %>
             <!-- 각 게시물 내용 표시 -->
             <% if (i < 3) { %>
@@ -44,6 +49,13 @@
                 <br>
                 <b>테스트</b>
                 <b id="test_<%= i %>">123</b>
+                <hr>
+                <b>댓글 작성자</b>
+                <br>
+                <b><%= comment_list.get(i).getComment_id() %></b>
+                <b>댓글 내용</b>
+                <br>
+                <b><%= comment_list.get(i).getP_comment() %></b>
                 <hr>
             <% }else if(3<= i && i <= 5 ){ %>
                 
@@ -91,6 +103,6 @@
     </div>
 
     <!-- Show more button -->
-    <button id="more" onclick="showMore()">더 보기</button>
+    <button id="more" onclick="더보기()">더 보기</button>
 </body>
 </html>

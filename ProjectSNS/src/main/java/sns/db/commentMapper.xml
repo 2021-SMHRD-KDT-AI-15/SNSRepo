@@ -9,11 +9,11 @@
 	
 	
 	<select id="c_count" resultType="int">
-    SELECT COUNT(*) FROM comment
+    SELECT COUNT(*) FROM comments
 	</select>
  	
 	<select id="c_detail" resultType = "sns.model.commentDTO">
-		select * from comment where comment_id=#{comment_id}
+		select * from comments where comment_id=#{comment_id}
 	</select>
  
 
