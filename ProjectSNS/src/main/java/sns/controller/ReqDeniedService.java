@@ -22,19 +22,17 @@ public class ReqDeniedService extends HttpServlet {
 		String user_id = (String) session.getAttribute("user_id");
 		
 		String ptp_id = request.getParameter("ptp_id");
-		String mtp_id = request.getParameter("mtp_id");
 		String gtp_id = request.getParameter("gtp_id");
 		
 		if(ptp_id != null) {
 			MatchDTO dto = new MatchDTO(user_id, ptp_id);
-			
-		}else if(mtp_id != null) {
-			MatchDTO dto = new MatchDTO(user_id, mtp_id);
-			
+			dao.ptp_delete(dto);
 		}else if(gtp_id != null) {
 			MatchDTO dto = new MatchDTO(user_id, gtp_id);
-			
+			dao.gtp_delete(dto);
 		}
+
+		response.sendRedirect("MatchReqShowService");
 		
 	}
 

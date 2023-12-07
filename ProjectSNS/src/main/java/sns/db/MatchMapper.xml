@@ -19,37 +19,88 @@
 			and group_id in (select group_id from interest where #{interest} is not null)
 	</select>
 	 
-	<insert id="ptp_match_req" parameterType="sns.model.MatchDTO">
-		insert into request(member_id, req_member_id, moim_ptp) values(#{id}, #{req_id}, 1)
+	<insert id="match_ptp" parameterType="sns.model.MatchDTO">
+		insert into request(member_id, req_member_id, ptp) values(#{id}, #{req_id}, 1)
 	</insert>
 	
-	<insert id="ptg_match_req" parameterType="sns.model.MatchDTO">
-		insert into request(group_id, req_member_id, group_ptg) values(#{id}, #{req_id}, 1)
+	<insert id="match_ptg" parameterType="sns.model.MatchDTO">
+		insert into request(group_id, req_member_id, ptg) values(#{id}, #{req_id}, 1)
 	</insert>
 	
-	<select id="req_ptp" resultType="sns.model.MatchDTO">
+	<insert id="match_gtp" parameterType="sns.model.MatchDTO">
+		insert into request(member_id, req_group_id, gtp) values(#{id}, #{req_id}, 1)
+	</insert>
+	
+	<insert id="match_gtg" parameterType="sns.model.MatchDTO">
+		insert into request(group_id, req_group_id, gtg) values(#{id}, #{req_id}, 1)
+	</insert>
+	
+	<select id="req_list_ptp" resultType="sns.model.MatchDTO">
 		select member_id, name, dis, gender, rating_person 
 		from basic_info 
 		where member_id in (select req_member_id from request where member_id = #{user_id})
-			and member_id in (select req_member_id from request where moim_ptp is not null)
+			and member_id in (select req_member_id from request where ptp is not null)
 	</select>
 	
-	<select id="req_mtp" resultType="sns.model.MatchDTO">
-		select req_moim_id 
-		from request
-		where req_moim_id in (select req_moim_id from request where member_id = #{user_id})
-			and req_moim_id in (select req_moim_id from request where moim_mtp is not null)
-	</select>
-	
-	<select id="req_gtp" resultType="sns.model.MatchDTO">
+	<select id="req_list_gtp" resultType="sns.model.MatchDTO">
 		select group_id, group_info, rating_group
 		from p_group 
 		where group_id in (select req_group_id from request where member_id=#{user_id})
-			and group_id in (select req_group_id from request where group_gtp is not null)
+			and group_id in (select req_group_id from request where gtp is not null)
 	</select>
 	
-	<insert id="new_moim" parameterType="sns.model.MatchDTO">
-		insert into moim_list values(#{id}, #{req_id}, 1)
+	<select id="req_list_ptg" resultType="sns.model.MatchDTO">
+		select member_id, name, dis, gender, rating_person 
+		from basic_info 
+		where member_id in (select req_member_id from request where group_id = #{group_id})
+			and member_id in (select req_member_id from request where ptg is not null)
+	</select>
+	
+	<select id="req_list_gtg" resultType="sns.model.MatchDTO">
+		select group_id, group_info, rating_group
+		from p_group 
+		where group_id in (select req_group_id from request where group_id=#{group_id})
+			and group_id in (select req_group_id from request where gtg is not null)
+	</select>
+	
+	<insert id="new_group_1" parameterType="sns.model.MatchDTO">
+		insert into p_group(group_id, rating_group, member_id) values(new_group_id.nextval, 50, #{req_id})
+	</insert>
+	 
+	<insert id="new_group_2" parameterType="sns.model.MatchDTO">
+		insert into group_list values(to_char(new_group_id.currval), #{id});
+	</insert>
+	
+	<insert id="new_group_3" parameterType="sns.model.MatchDTO">
+		insert into group_list values(to_char(new_group_id.currval), #{req_id});
+	</insert>
+	
+	<insert id="group_new_member_by_p" parameterType="sns.model.MatchDTO">
+		insert into group_list values(#{req_id}, #{id})
+	</insert>
+	
+	<insert id="group_new_member" parameterType="sns.model.GroupDTO">
+		insert into group_list values(#{group_id}, #{member_id})
+	</insert>
+	
+	<delete id="ptp_delete" parameterType="sns.model.MatchDTO">
+		delete from request where member_id=#{id} and req_member_id=#{req_id}
+	</delete>
+	
+	<delete id="gtp_delete" parameterType="sns.model.MatchDTO">
+		delete from request where member_id=#{id} and req_group_id=#{req_id}
+	</delete>
+	
+	<delete id="ptg_delete" parameterType="sns.model.MatchDTO">
+		delete from request where group_id=#{group_id} and req_member_id=#{req_id}
+	</delete>
+	
+	<delete id="gtg_delete" parameterType="sns.model.MatchDTO">
+		delete from request where group_id=#{group_id} and req_group_id=#{req_id}
+	</delete>
+	
+	<insert id="gtg_leader_chat" parameterType="sns.model.MatchDTO">
+		
 	</insert>
 	
 </mapper>

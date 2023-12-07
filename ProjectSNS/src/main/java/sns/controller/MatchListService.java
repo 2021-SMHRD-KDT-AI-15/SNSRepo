@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import sns.model.MatchDAO;
 import sns.model.MatchDTO;
 
-@WebServlet("/MatchService")
-public class MatchService extends HttpServlet {
+@WebServlet("/MatchListService")
+public class MatchListService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

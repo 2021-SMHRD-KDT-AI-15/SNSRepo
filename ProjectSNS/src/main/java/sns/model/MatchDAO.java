@@ -13,7 +13,6 @@ public class MatchDAO {
 
 	ArrayList<MatchDTO> p_list = new ArrayList<>();
 	ArrayList<MatchDTO> g_list = new ArrayList<>();
-	ArrayList<MatchDTO> m_list = new ArrayList<>();
 	
 	public ArrayList<MatchDTO> user_list(MatchDTO p_dto) {
 		
@@ -37,90 +36,140 @@ public class MatchDAO {
 		return g_list;
 	}
 
-	public void match_moim_ptp(MatchDTO dto) {
+	public void match_ptp(MatchDTO dto) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("ptp_match_req", dto);
+		sqlSession.insert("match_ptp", dto);
 		
 		sqlSession.close();
 	}
 	
-	public void match_group_ptg(MatchDTO dto) {
+	public void match_ptg(MatchDTO dto) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("ptg_match_req", dto);
+		sqlSession.insert("match_ptg", dto);
 		
 		sqlSession.close();
 	}
 	
-	public ArrayList<MatchDTO> req_ptp_list(String user_id) {
+	public void match_gtp(MatchDTO dto) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		p_list = (ArrayList) sqlSession.selectList("req_ptp", user_id);
+		sqlSession.insert("match_gtp", dto);
+		
+		sqlSession.close();
+	}
+	
+	public void match_gtg(MatchDTO dto) {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		sqlSession.insert("match_gtg", dto);
+		
+		sqlSession.close();
+	}
+	
+	public ArrayList<MatchDTO> req_list_ptp(String user_id) {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		p_list = (ArrayList) sqlSession.selectList("req_list_ptp", user_id);
 		
 		sqlSession.close();
 		
 		return p_list;
 	}
 
-	public ArrayList<MatchDTO> req_mtp_list(String user_id) {
+	public ArrayList<MatchDTO> req_list_gtp(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		p_list = (ArrayList) sqlSession.selectList("req_mtp", user_id);
+		g_list = (ArrayList) sqlSession.selectList("req_list_gtp", user_id);
 		
 		sqlSession.close();
 		
-		return m_list;
+		return g_list;
 	}
-
-	public ArrayList<MatchDTO> req_gtp_list(String user_id) {
+	
+	public ArrayList<MatchDTO> req_list_ptg(String group_id) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		g_list = (ArrayList) sqlSession.selectList("req_gtp", user_id);
+		p_list = (ArrayList) sqlSession.selectList("req_list_ptg", group_id);
+		
+		sqlSession.close();
+		
+		return p_list;
+	}
+	
+	public ArrayList<MatchDTO> req_list_gtg(String group_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		g_list = (ArrayList) sqlSession.selectList("req_list_gtg", group_id);
 		
 		sqlSession.close();
 		
 		return g_list;
 	}
 
-	public void new_moim(MatchDTO dto) {
+	public void new_group(MatchDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("new_moim", dto);
-		sqlSession.insert("moim_add", dto);
+		sqlSession.insert("new_group_1", dto);
+		sqlSession.insert("new_group_2", dto);
+		sqlSession.insert("new_group_3", dto);
 		
 		sqlSession.close();
 	}
 
-	public void moim_add(MatchDTO dto) {
-		// TODO Auto-generated method stub
+	public void group_new_member(GroupDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-	}
-
-	public void group_add(MatchDTO dto) {
-		// TODO Auto-generated method stub
+		sqlSession.insert("group_new_member", dto);
 		
+		sqlSession.close();
 	}
 
 	public void ptp_delete(MatchDTO dto) {
-		// TODO Auto-generated method stub
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-	}
-
-	public void mtp_delete(MatchDTO dto) {
-		// TODO Auto-generated method stub
+		sqlSession.delete("ptp_delete", dto);
 		
+		sqlSession.close();
 	}
-
+	
 	public void gtp_delete(MatchDTO dto) {
-		// TODO Auto-generated method stub
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
+		sqlSession.delete("gtp_delete", dto);
+		
+		sqlSession.close();
 	}
 	
+	public void ptg_delete(MatchDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		sqlSession.delete("ptg_delete", dto);
+		
+		sqlSession.close();
+	}
 	
-	
-	
+	public void gtg_delete(MatchDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		sqlSession.delete("gtg_delete", dto);
+		
+		sqlSession.close();
+	}
+
+	public void gtg_leader_chat(MatchDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		sqlSession.insert("gtg_leader_chat", dto);
+		
+		sqlSession.close();
+	}
+
 }

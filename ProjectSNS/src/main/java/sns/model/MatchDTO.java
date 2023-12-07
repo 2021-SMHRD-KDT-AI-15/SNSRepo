@@ -6,7 +6,6 @@ public class MatchDTO {
 	private String member_id;
 	private String req_id;
 	private String group_id;
-	private String moim_id;
 	private String name;
 	private String img;
 	private String dis;
@@ -158,14 +157,6 @@ public class MatchDTO {
 
 	public void setReq_id(String req_id) {
 		this.req_id = req_id;
-	}
-
-	public String getMoim_id() {
-		return moim_id;
-	}
-
-	public void setMoim_id(String moim_id) {
-		this.moim_id = moim_id;
 	}
 
 }
