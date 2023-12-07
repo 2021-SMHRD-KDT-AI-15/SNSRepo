@@ -1,0 +1,1 @@
+create sequence num_comment increment by 1 start with 1;

@@ -20,6 +20,7 @@
     <mapper resource="sns/db/MemberMapper.xml"/>
     <mapper resource="sns/db/BoardMapper.xml"/>
     <mapper resource="sns/db/MatchMapper.xml"/>
+    <mapper resource="sns/db/commentMapper.xml"/>
   </mappers>
 </configuration>
 

@@ -1,40 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="sns.model.BoardDTO"%>
+<%@page import="sns.model.commentDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
+    <title>Content List</title>
+    <script>
+        function showMore() {
+            var moreItems = document.getElementsByClassName('hidden');
+            for (var i = 0; i < moreItems.length; i++) {
+                moreItems[i].style.display = 'block';
+            }
+          //  document.getElementById('more').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
+    <div id="content-list">
+        <!-- 여기에 초기 게시물을 표시합니다. -->
+        <% 
+        ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
+        for (int i = 0; i <= 12; i++) { %>
+            <!-- 각 게시물 내용 표시 -->
+            <% if (i <= 3) { %>
+                <b>제목</b>
+                <b id="title_<%= i %>"><%= content_list.get(i).getTitle() %></b>
+                <b>작성자</b>
+                <br>
+                <b id="member_id_<%= i %>"><%= content_list.get(i).getMember_id() %></b>
+                <b>다운로드</b>
+                <a href="" download>다운로드</a>
+                <br>
+                <b>내용</b>
+                <br>
+                <b id="content_<%= i %>"><%= content_list.get(i).getContent() %></b>
+                <br>
+                <img src="file/<%= content_list.get(i).getAttachment() %>" />
+                <br>
+                <b>테스트</b>
+                <b id="test_<%= i %>">123</b>
+                <hr>
+            <% }else  if( 4<= i || i <= 6) { %>
+                <!-- Hide items 4 and 5 -->
+                <div class="hidden" style="display: none;">
+                    <b>제목</b>
+                    <b id="title_<%= i %>"><%= content_list.get(i).getTitle() %></b>
+                    <b>작성자</b>
+                    <br>
+                    <b id="member_id_<%= i %>"><%= content_list.get(i).getMember_id() %></b>
+                    <b>다운로드</b>
+                    <a href="" download>다운로드</a>
+                    <br>
+                    <b>내용</b>
+                    <br>
+                    <b id="content_<%= i %>"><%= content_list.get(i).getContent() %></b>
+                    <br>
+                    <img src="file/<%= content_list.get(i).getAttachment() %>" />
+                    <br>
+                    <b>테스트</b>
+                    <b id="test_<%= i %>">123</b>
+                    <hr>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
 
-
- <a href = "Write.jsp">글쓰기</a><br>
- <br>
- <br>
- 
- 
-<c:forEach items="${result}" var="board">
-    <b>${board.content_id}</b>
-    <b>제목</b><br>
-    <b>${board.title}</b>
-    <b>작성자</b><br>
-    <b>${board.member_id}</b>
-    <b>다운로드</b>
-    <a href="" download>다운로드</a><br>
-    <b>내용</b><br>
-    <b>${board.content}</b><br>
-    <img src="file/${board.attachment}" /> <br>
-    <hr> <!-- 각 게시물 사이에 구분선을 추가 -->
-</c:forEach>
-
-<!-- Scripts -->
-<!--
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
--->
+    <!-- Show more button -->
+    <button id="more" onclick="showMore()">더 보기</button>
 </body>
 </html>

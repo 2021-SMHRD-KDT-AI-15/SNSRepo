@@ -40,6 +40,7 @@ public class BoardDetail extends HttpServlet {
 	
 	}
 	
+	
 	System.out.println(b_list);
 	request.setAttribute("result", b_list);
 	RequestDispatcher rd = request.getRequestDispatcher("BoardMain.jsp");

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sns.db.commentMapper">
+
+	<insert id="c_upload" parameterType="sns.model.commentDTO">
+	insert into comments values(#{content_id}, num_comment.nextval, #{member_id}, #{p_comment}, sysdate)
+	</insert>
+	
+	
+	
+	<select id="c_count" resultType="int">
+    SELECT COUNT(*) FROM comment
+	</select>
+ 	
+	<select id="c_detail" resultType = "sns.model.commentDTO">
+		select * from comment where comment_id=#{comment_id}
+	</select>
+ 
+
+</mapper>
