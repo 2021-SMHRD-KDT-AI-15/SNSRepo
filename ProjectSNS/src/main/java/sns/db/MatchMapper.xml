@@ -6,7 +6,6 @@
 		select member_id, name, dis, gender, rating_person 
 		from basic_info 
 		where gender in (#{gender}) 
-			and rating_person >= #{rating} 
 			and member_id in (select member_id from hope_area where area = #{area}) 
 			and member_id in (select member_id from interest where #{interest} is not null)
 	</select>
@@ -14,8 +13,7 @@
 	<select id="filter_group" parameterType="sns.model.MatchDTO" resultType="sns.model.MatchDTO">
 		select group_id, group_info, rating_group
 		from p_group 
-		where rating_group >= #{rating} 
-			and group_id in (select group_id from hope_area where area = #{area}) 
+		where group_id in (select group_id from hope_area where area = #{area}) 
 			and group_id in (select group_id from interest where #{interest} is not null)
 	</select>
 	 

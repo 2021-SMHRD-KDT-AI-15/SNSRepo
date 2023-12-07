@@ -20,7 +20,7 @@ public class MatchListService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String gender = request.getParameter("gender");
-		int rating = Integer.parseInt(request.getParameter("rating"));
+		int rating = 0;
 		String area = request.getParameter("area");
 		String interest = request.getParameter("interest");
 		
