@@ -1,6 +1,7 @@
 package sns.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,28 +12,23 @@ import javax.servlet.http.HttpSession;
 import sns.model.MatchDAO;
 import sns.model.MatchDTO;
 
-@WebServlet("/ReqDeniedService")
-public class ReqDeniedService extends HttpServlet {
+@WebServlet("/Ptp_MatchRequestService")
+public class Ptp_MatchRequestService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		
+		String req_id = (String) session.getAttribute("user_id");
+		String id = request.getParameter("id");
+		
 		MatchDAO dao = new MatchDAO();
 		
-		String user_id = (String) session.getAttribute("user_id");
+		MatchDTO dto = new MatchDTO(id, req_id);
 		
-		String ptp_id = request.getParameter("ptp_id");
-		String gtp_id = request.getParameter("gtp_id");
+		dao.match_ptp(dto);
 		
-		if(ptp_id != null) {
-			MatchDTO dto = new MatchDTO(user_id, ptp_id);
-			dao.ptp_delete(dto);
-		}else if(gtp_id != null) {
-			MatchDTO dto = new MatchDTO(user_id, gtp_id);
-			dao.gtp_delete(dto);
-		}
-
-		response.sendRedirect("MatchReqShowService");
+		response.sendRedirect("MatchMain.jsp");
 		
 	}
 

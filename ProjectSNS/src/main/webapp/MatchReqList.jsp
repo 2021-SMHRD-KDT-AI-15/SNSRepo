@@ -33,23 +33,7 @@
 				</td>
 			</tr>
 		</c:forEach>
-		<c:forEach var="mtp_list" items="${mtp_list}">
-			<tr>
-				<td colspan="4">${mtp_list.id}</td>
-				<td>
-					<form action="ReqAcceptService">
-					<input type="hidden" name="mtp_id" value=${mtp_list.id}>
-					<input type="submit" value="수락">
-					</form>
-				</td>
-				<td>
-					<form action="ReqDeniedService">
-					<input type="hidden" name="mtp_id" value=${mtp_list.id}>
-					<input type="submit" value="거부">
-					</form>
-				</td>
-			</tr>
-		</c:forEach>
+		
 		<c:forEach var="gtp_list" items="${gtp_list}">
 			<tr>
 				<td colspan="2">${gtp_list.group_id}</td>

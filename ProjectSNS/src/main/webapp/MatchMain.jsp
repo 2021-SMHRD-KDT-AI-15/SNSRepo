@@ -9,7 +9,7 @@
 
 	<%session.setAttribute("user_id", "ID1");%>
 
-	<form action="MatchService">
+	<form action="MatchListService">
 		<li>남<input type="checkbox" name="gender" value="남"> 여<input type="checkbox" name="gender" value="여">
 		<li><input type="number" name="rating" value=1>
 		<li><input type="text" name="area" value="광주 남구">

@@ -21,10 +21,10 @@
 						<tr>
 							<td>${p_list.name}</td>
 							<td>${p_list.gender}</td>
-							<td>${p_list.dis}</td>
 							<td>${p_list.rating}</td>
+							<td>${p_list.dis}</td>
 							<td>
-								<form action="P_MatchRequestService">
+								<form action="Ptp_MatchRequestService">
 								<input type="hidden" name="id" value=${p_list.member_id}>
 								<input type="submit" value="매칭 신청">
 								</form>
@@ -42,10 +42,10 @@
 					<c:forEach var="g_list" items="${g_list}">
 						<tr>
 							<td>${g_list.group_id}</td>
-							<td>${g_list.group_info}</td>
 							<td>${g_list.rating}</td>
+							<td>${g_list.group_info}</td>
 							<td>
-								<form action="G_MatchRequestService">
+								<form action="Ptg_MatchRequestService">
 								<input type="hidden" name="id" value=${g_list.group_id}>
 								<input type="submit" value="매칭 신청">
 								</form>
@@ -72,7 +72,7 @@
 		let id = $(".member_id").text();
 		$(".p_request").on("click", ()=>{
 			request.setAttribute("id", id);
-			RequestDispatcher rd = request.getRequestDispatcher("P_MatchRequestService");
+			RequestDispatcher rd = request.getRequestDispatcher("Ptp_MatchRequestService");
 			rd.forward(request, response);
 		})
 	</script>

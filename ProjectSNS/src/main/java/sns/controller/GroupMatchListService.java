@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import sns.model.MatchDAO;
 import sns.model.MatchDTO;
 
-@WebServlet("/MatchService")
-public class MatchService extends HttpServlet {
+@WebServlet("/GroupMatchListService")
+public class GroupMatchListService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -37,7 +37,7 @@ public class MatchService extends HttpServlet {
 
 		request.setAttribute("p_list", p_list);
 		request.setAttribute("g_list", g_list);
-		RequestDispatcher rd = request.getRequestDispatcher("MatchList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("GroupMatchList.jsp");
 		rd.forward(request, response);
 				
 	}

@@ -28,6 +28,19 @@ public class MemberDTO {
 		this.rating_person = rating_person;
 	}
 	
+	public MemberDTO(String Member_id, String name, String mail, String birth, String img, String dis, String gender,
+			String location, String rating_person) {
+		this.Member_id = Member_id;
+		this.name = name;
+		this.mail = mail;
+		this.birth = birth;
+		this.img = img;
+		this.dis = dis;
+		this.gender = gender;
+		this.location = location;
+		this.rating_person = rating_person;
+	}
+
 	public MemberDTO(String Member_id, String pw) {
 		this.Member_id = Member_id;
 		this.pw = pw;
@@ -37,6 +50,9 @@ public class MemberDTO {
 		
 	}
 
+	
+	
+	
 	
 	public String getMember_id() {
 		return Member_id;

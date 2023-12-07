@@ -21,6 +21,7 @@
     <mapper resource="sns/db/BoardMapper.xml"/>
     <mapper resource="sns/db/MatchMapper.xml"/>
     <mapper resource="sns/db/commentMapper.xml"/>
+    <mapper resource="sns/db/GroupMapper.xml"/>
   </mappers>
 </configuration>
 

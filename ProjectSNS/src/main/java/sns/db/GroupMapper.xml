@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sns.db.GroupMapper">
+
+	<insert id="new_group_1" parameterType="sns.model.GroupDTO">
+		insert into p_group(group_id, rating_group, group_info, member_id) values(#{group_id}, 50, #{group_info}, #{member_id})
+	</insert>
+	
+	<insert id="new_group_2" parameterType="sns.model.GroupDTO">
+		insert into interest(group_id, #{interest}) values(#{group_id}, #{mmr})
+	</insert>
+
+	<select id="my_group_list" resultType="sns.model.MatchDTO">
+		select group_id, group_info, img from p_group
+		where group_id in (select group_id from group_list where member_id = #{user_id})
+	</select>
+
+	<select id="get_group_info" resultType="sns.model.MatchDTO">
+		select group_id, group_info, rating_group, mmr, img, member_id from p_group
+		where group_id = #{group_id}
+	</select> 
+	
+	<select id="get_group_member_list" resultType="sns.model.MemberDTO">
+		select Member_id, name, mail, birth, img, dis, gender, location, rating_person from basic_info
+		where member_id = (select member_id from group_list where group_id = #{group_id})
+	</select>
+
+	<delete id="group_member_kick" parameterType="sns.model.GroupDTO">
+		delete from group_list where group_id = #{group_id} and member_id = #{member_id}
+	</delete>
+
+	<update id="group_id_change" parameterType="sns.model.GroupChangeDTO">
+		update p_group set group_id = #{new_input} where group_id = #{group_id}
+	</update>
+	
+	<update id="group_info_change" parameterType="sns.model.GroupChangeDTO">
+		update p_group set group_info = #{new_input} where group_id = #{group_id}
+	</update>
+
+	<delete id="group_withdrawal" parameterType="sns.model.GroupDTO">
+		delete from group_list where group_id = #{group_id} and member_id = #{member_id}
+	</delete>
+
+	<delete id="group_dissolve_1">
+		delete from p_group where group_id = #{group_id}
+	</delete>
+	
+	<delete id="group_dissolve_2">
+		delete from group_list where group_id = #{group_id}
+	</delete>
+
+</mapper>
