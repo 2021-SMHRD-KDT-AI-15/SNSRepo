@@ -1,15 +1,15 @@
 .u-section-1 .u-sheet-1 {
-  min-height: 524px;
+  min-height: 662px;
 }
 
 .u-section-1 .u-form-1 {
-  height: 381px;
+  height: 294px;
   --thumb-color: #478ac9;
   --thumb-hover-color: #77aad9;
   --track-color: #c0c0c0;
   --track-active-color: #478ac9;
   width: 660px;
-  margin: 16px auto 60px;
+  margin: 233px auto 0;
 }
 
 .u-section-1 .u-form-group-1 {
@@ -27,6 +27,10 @@
 .u-section-1 .u-btn-1 {
   background-image: none;
   --radius: 15px;
+}
+
+.u-section-1 .u-btn-2 {
+  margin: -59px auto 60px;
 }
 
 @media (max-width: 767px) {
