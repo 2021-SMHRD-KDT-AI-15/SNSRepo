@@ -1,0 +1,69 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 662px;
+}
+
+.u-section-1 .u-group-1 {
+  min-height: 404px;
+  margin-top: 103px;
+  margin-bottom: 60px;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px;
+}
+
+.u-section-1 .u-custom-html-1 {
+  height: auto;
+  min-height: 272px;
+  width: 660px;
+  margin: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  margin: 27px auto 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-group-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    width: 658px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-custom-html-1 {
+    width: 650px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    width: 520px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-custom-html-1 {
+    width: 380px;
+  }
+}.scroll {
+height:500px;
+background: #fff;
+border: 1px solid #C1C1C1;
+overflow-x: scroll;
+overflow-y: scroll;
+}@font-face {
+  font-family: 'Amarillo';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Amarillo.otf);
+}
