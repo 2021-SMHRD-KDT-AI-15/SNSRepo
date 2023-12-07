@@ -1,51 +1,17 @@
 .u-section-1 .u-sheet-1 {
-  min-height: 978px;
-}
-
-.u-section-1 .u-form-1 {
-  height: 381px;
-  --thumb-color: #478ac9;
-  --thumb-hover-color: #77aad9;
-  --track-color: #c0c0c0;
-  --track-active-color: #478ac9;
-  width: 660px;
-  margin: 16px auto 0;
-}
-
-.u-section-1 .u-form-group-1 {
-  margin-left: 0;
-}
-
-.u-section-1 .u-form-group-2 {
-  margin-left: 0;
-}
-
-.u-section-1 .u-form-group-3 {
-  --progress: 0%;
-  margin-left: 0;
-}
-
-.u-section-1 .u-form-group-4 {
-  margin-left: 0;
-}
-
-.u-section-1 .u-btn-1 {
-  background-image: none;
-  --radius: 15px;
+  min-height: 646px;
 }
 
 .u-section-1 .u-text-1 {
   font-family: Amarillo;
   font-size: 1.5rem;
   width: 251px;
-  margin: 16px auto 0;
+  margin: 45px auto 0;
 }
 
 .u-section-1 .u-list-1 {
-  margin-top: 25px;
-  margin-bottom: 40px;
-  height: auto;
-  min-height: 462px;
+  margin-top: 56px;
+  margin-bottom: 45px;
 }
 
 .u-section-1 .u-repeater-1 {
@@ -500,6 +466,10 @@
     margin-left: 273px;
   }
 
+  .u-section-1 .u-list-1 {
+    height: auto;
+  }
+
   .u-section-1 .u-repeater-1 {
     grid-auto-columns: calc(33.333333333333336% - 6.66667px);
     grid-template-columns: repeat(3, calc(33.333333333333336% - 6.66667px));
@@ -728,13 +698,9 @@
 }
 
 @media (max-width: 767px) {
-  .u-section-1 .u-form-1 {
-    width: 540px;
-  }
-
   .u-section-1 .u-text-1 {
-    margin-left: 205px;
     font-size: 1rem;
+    margin-left: 205px;
   }
 
   .u-section-1 .u-repeater-1 {
@@ -954,10 +920,6 @@
 }
 
 @media (max-width: 575px) {
-  .u-section-1 .u-form-1 {
-    width: 400px;
-  }
-
   .u-section-1 .u-text-1 {
     margin-left: 152px;
   }

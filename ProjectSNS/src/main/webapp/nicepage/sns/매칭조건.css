@@ -1,0 +1,58 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 524px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 381px;
+  --thumb-color: #478ac9;
+  --thumb-hover-color: #77aad9;
+  --track-color: #c0c0c0;
+  --track-active-color: #478ac9;
+  width: 660px;
+  margin: 16px auto 60px;
+}
+
+.u-section-1 .u-form-group-1 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-2 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-3 {
+  --progress: 0%;
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-4 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  --radius: 15px;
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-form-1 {
+    width: 400px;
+  }
+}.scroll {
+height:500px;
+background: #fff;
+border: 1px solid #C1C1C1;
+overflow-x: scroll;
+overflow-y: scroll;
+}@font-face {
+  font-family: 'Amarillo';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Amarillo.otf);
+}
