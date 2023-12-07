@@ -63,12 +63,11 @@ public class BoardDetail extends HttpServlet {
 	
 	}
 	
-	System.out.println(b_list);
 	
 	//////////////////////////////////////////////////////////////////////
 	
-	System.out.println(b_list);
 	request.setAttribute("result", b_list);
+	request.setAttribute("c_result", b_list2);
 	RequestDispatcher rd = request.getRequestDispatcher("BoardMain.jsp");
 	rd.forward(request, response);
 	
