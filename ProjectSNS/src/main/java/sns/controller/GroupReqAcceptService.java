@@ -13,7 +13,7 @@ import sns.model.GroupDTO;
 import sns.model.MatchDAO;
 import sns.model.MatchDTO;
 
-@WebServlet("/ReqAcceptService")
+@WebServlet("/GroupReqAcceptService")
 public class GroupReqAcceptService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
