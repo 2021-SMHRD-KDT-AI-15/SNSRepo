@@ -46,90 +46,64 @@ const requestType = {  //메시지 타입
 }
 app.use('/css', express.static('./static/css'));
 app.use('/js', express.static('./static/js'));
+//invitation('room', 'inv_msg', '23/12/05', 'attached', 'user');
 
-async function saveChatMessage(room, chatContent, chatDate, attachment, memberId) {
+/* 이전 채팅 로그 불러오기 - 진행중 */
+async function loadChatLog(room) {
+  let connection;
+  try {
+      connection = await oracledb.getConnection(dbConfig)
+      console.log('oracleDB connected')
+      const result = await connection.execute(
+        `SELECT CHAT_ID, CHAT_CONTENT, CHAT_DATE, ATTACHMENT, MEMBER_ID FROM CHAT_CONTENT WHERE CHAT_ID = :room ORDER BY CHAT_DATE`,
+      [room]
+    );
+    console.log(result.rows[0][0]);
+      
+  } catch (error) {
+      console.log('Error occured connecting to OracleDB:', error)
+  }
+}
+loadChatLog('testid')
+
+/* 초대 기능 - 진행중 */
+// async function invitation(room, inv_msg, chat_date, attached, user) {
+//     let connection;
+//     try {
+//         connection = await oracledb.getConnection(dbConfig)
+//         console.log('oracleDB connected')
+        
+//         const result = await connection.execute(
+//             `INSERT INTO CHAT_CONTENT VALUES (:room, :inv_msg, :chat_date, :attached, :user)`,
+//             [room, inv_msg, chat_date, attached, user],
+//       );
+//         console.log(result.rows);
+        
+//     } catch (error) {
+//         console.log('Error occured connecting to OracleDB:', error)
+//     }
+//   }
+
+/* 채팅 DB 저장 */
+async function saveChatlog(room, inv_msg, chat_date, attached, user) {
     let connection;
     try {
-        connection = await oracledb.getConnection(dbConfig);
-        console.log('OracleDB connected');
-
+        connection = await oracledb.getConnection(dbConfig)
+        console.log('oracleDB connected')
+        
         const result = await connection.execute(
-            `INSERT INTO CHAT_CONTENT (CHAT_ID, CHAT_CONTENT, CHAT_DATE, ATTACHMENT, MEMBER_ID) VALUES (:room, :chatContent, :chatDate, :attachment, :memberId)`,
-            [room, chatContent, chatDate, attachment, memberId]
-        );
-        await connection.commit();
-        console.log('Chat message saved successfully:', result);
+            `INSERT INTO CHAT_CONTENT VALUES (:room, :inv_msg, :chat_date, :attached, :user)`,
+            [room, inv_msg, chat_date, attached, user]
+      );
+        console.log(result)
+        console.log(result.rows);
+        
     } catch (error) {
-        console.log('Error saving chat message to OracleDB:', error);
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (error) {
-                console.log('Error closing OracleDB connection:', error);
-            }
-        }
+        console.log('Error occured connecting to OracleDB:', error)
     }
-}
+  }
 
-// ... (existing code)
-
-async function sendBeforUserList(connection, room) {
-    try {
-        const beforList = [];
-        for (const target of rooms.entries()) {
-            if (room === target[1].room) {
-                beforList.push(target[1].user);
-            }
-        }
-
-        // Fetch chat history from the database
-        const chatHistory = await getChatHistory(room);
-
-        const response = JSON.stringify({
-            param: '',
-            users: beforList,
-            chatHistory: chatHistory,
-            type: requestType.D
-        });
-
-        connection.sendUTF(response);
-    } catch (error) {
-        console.log('Error fetching chat history:', error);
-    }
-}
-
-async function getChatHistory(room) {
-    let connection;
-    try {
-        connection = await oracledb.getConnection(dbConfig);
-        console.log('OracleDB connected');
-
-        const result = await connection.execute(
-            `SELECT MEMBER_ID, CHAT_DATE, CHAT_CONTENT FROM CHAT_CONTENT WHERE CHAT_ID = :room ORDER BY CHAT_DATE`,
-            [room]
-        );
-
-        return result.rows.map(row => ({
-            fromUser: row[0],
-            timestamp: row[1],
-            param: row[2]
-        }));
-    } catch (error) {
-        console.log('Error fetching chat history from OracleDB:', error);
-        return [];
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (error) {
-                console.log('Error closing OracleDB connection:', error);
-            }
-        }
-    }
-}
-
-wsServer.on('request', async function(request) {
+wsServer.on('request', function(request) {
     const user = request.resourceURL.query.user;  // ID 
     const room = request.resourceURL.query.room;  // 방 번호
     if( NUL(user) || NUL(room)){
@@ -137,25 +111,14 @@ wsServer.on('request', async function(request) {
     }
 
     var connection = request.accept();   // 들어온 커넥션 객체
-    await sendBeforUserList(connection, room); // 이미 들어와있는 사용자 목록을 전송
+    sendBeforUserList(connection, room); // 이미 들어와있는 사용자 목록을 전송
     
     rooms.set(user,{user:user, room:room, con:connection});  //방 목록에 자신 추가
 
     msgSender(rooms.get(user), null, requestType.A);  // 로그인 타입으로 메시지 전송
 
     connection.on('message', function(message) {  // 채팅메시지가 도달하면
-        if (message.type === 'utf8') {
-            const chatContent = message.utf8Data;
-            const chatDate = new Date().toISOString();
-            const attachment = ''; // You may modify this based on your application
-            const memberId = /*identify.*/user;
-    
-            // Save the chat message to OracleDB
-            saveChatMessage(room, chatContent, chatDate, attachment, memberId);
-    
-            // Send the chat message to other users in the room
-            msgSender(rooms.get(user), message, requestType.B);
-        }
+        msgSender(rooms.get(user), message, requestType.B);
     });
 
     connection.on('close', function(reasonCode, description) {   // 커넥션이 끊기면
@@ -195,4 +158,22 @@ function msgSender(identify, message, type){
         }
         resolve('succ');        
     });    
+}
+
+//방 접속 시 이미 들어와있는 목록을 받기위한 함수
+function sendBeforUserList(connection, room){
+    new Promise((resolve, reject)=>{
+        var beforList = new Array();
+        for(let target of rooms.entries()) {  //반복문을 통해 사용자 리스트를 배열에 담아서
+            if(room == target[1].room){
+                beforList.push(target[1].user);
+            }
+        }
+        resolve(beforList);        
+    }).then((list)=>{
+        var res = JSON.stringify({param:'',users:list, type:requestType.D});  //막 들어온 사용자한테 해당 대상을 전달.
+        connection.sendUTF(res);
+    }).catch((err)=>{
+        console.log(err);
+    });
 }
