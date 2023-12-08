@@ -1,0 +1,22 @@
+1.
+instantclient_21_12폴더 시스템 환경변수 path에 등록
+(default = C:\)
+
+재부팅
+
+2.
+git clone --recurse-submodules https://github.com/oracle/node-oracledb.git
+
+https://github.com/oracle/odpi
+에서 코드 받아서 node-oracledb\opdi 폴더 내부에 삽입
+- 여기는 진행되어 있음
+
+3.
+
+git checkout main
+
+4. 
+git submodule update
+
+5.
+npm install '프로젝트 경로'/node-oracledb
