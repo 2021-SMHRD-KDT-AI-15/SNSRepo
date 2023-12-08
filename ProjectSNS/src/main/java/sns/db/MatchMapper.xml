@@ -3,7 +3,7 @@
 <mapper namespace="sns.db.MatchMapper">
 
 	<select id="filter_basic" parameterType="sns.model.MatchDTO" resultType="sns.model.MatchDTO">
-		select member_id, name, dis, gender, rating_person 
+		select member_id, name, dis, gender, rating_person
 		from basic_info 
 		where gender in (#{gender}) 
 			and member_id in (select member_id from hope_area where area = #{area}) 
