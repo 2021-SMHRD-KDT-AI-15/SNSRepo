@@ -13,5 +13,17 @@
 		select * from basic_info where Member_id=#{Member_id} and pw=#{pw}
 	</select>
 
-
+	<select id="friend_list" resultType="sns.model.FriendDTO">
+		select member_id, name, mail, birth, img, dis, gender, location, rating_person from basic_info
+		where member_id in (select friend_id from friend where member_id = #{user_id})
+	</select>
+	
+	<delete id="friend_delete1" parameterType="sns.model.FriendDTO">
+		delete from friend where friend_id = #{friend_id} and member_id = #{member_id}
+	</delete>
+	
+	<delete id="friend_delete2" parameterType="sns.model.FriendDTO">
+		delete from friend where member_id = #{friend_id} and friend_id = #{member_id}
+	</delete>
+	
 </mapper>

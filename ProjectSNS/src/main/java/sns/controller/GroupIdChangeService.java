@@ -32,9 +32,13 @@ public class GroupIdChangeService extends HttpServlet {
 		int result = dao.group_id_change(dto);
 		
 		if(result > 0) {
-			response.sendRedirect("GroupMainService.jsp");
+			request.setAttribute("group_id", new_input);
+			RequestDispatcher rd = request.getRequestDispatcher("GroupMainService");
+			rd.forward(request, response);
 		}else { // 아이디 변경 실패시
-			response.sendRedirect("GroupMainService.jsp");
+			request.setAttribute("group_id", group_id);
+			RequestDispatcher rd = request.getRequestDispatcher("GroupMainService");
+			rd.forward(request, response);
 		}
 		
 	}

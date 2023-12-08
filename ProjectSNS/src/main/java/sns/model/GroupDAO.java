@@ -12,7 +12,7 @@ public class GroupDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactiory();
 
 	ArrayList<GroupDTO> group_list = new ArrayList<>();
-	ArrayList<MemberDTO> group_member_list = new ArrayList<>();
+	ArrayList<GroupMemberDTO> group_member_list = new ArrayList<>();
 
 	public int newGroup(GroupDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -45,7 +45,7 @@ public class GroupDAO {
 		return group_main;
 	}
 
-	public ArrayList<MemberDTO> get_group_member_list(String group_id) {
+	public ArrayList<GroupMemberDTO> get_group_member_list(String group_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		group_member_list = (ArrayList) sqlSession.selectList("get_group_member_list", group_id);

@@ -1,19 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="sns.model.MatchDTO" isELIgnored="false"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Gather up!!">
+    <meta name="keywords" content="gather up!, Our service will meet youwelcomeGather up, We are directly involved in the process">
     <meta name="description" content="">
-    <title>그룹관리</title>
+    <title>GroupMaking</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="그룹관리.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+<link rel="stylesheet" href="GroupMaking.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
+    <meta name="generator" content="Nicepage 6.1.0, nicepage.com">
     <meta name="referrer" content="origin">
     
-    
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
     
     
     
@@ -40,12 +42,12 @@
     <meta name="theme-color" content="#478ac9">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="그룹관리">
+    <meta name="twitter:title" content="GroupMaking">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="그룹관리">
+    <meta property="og:title" content="GroupMaking">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows">
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows" style="margin-bottom: 0px;">
         <div class="u-custom-color-2 u-section-row u-section-row-1" id="sec-46aa">
           <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-social-icons u-spacing-10 u-social-icons-1">
@@ -83,7 +85,7 @@
         <div class="u-border-5 u-border-custom-color-2 u-border-no-left u-border-no-right u-border-no-top u-section-row u-sticky u-sticky-5c67 u-white u-section-row-2" id="sec-37e8">
           <div class="u-clearfix u-sheet u-sheet-2">
             <h1 class="u-custom-font u-text u-text-default u-text-1">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="게시글-나오는곳.html">Gather up!!</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="#">Gather up!!</a>
             </h1>
             <p class="u-text u-text-default u-text-2">버튼 아이콘으로 대체할 예정</p>
             <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">Button</a>
@@ -98,67 +100,58 @@
           
         </div>
       </div></header>
-    <section class="scroll u-clearfix u-white u-section-1" id="sec-3939">
+    <section class="u-clearfix u-section-1" id="sec-2ec0">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-1">친구 관리</a>
-        <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-2">그룹 관리</a>
-        <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-3">모임 관리</a>
-        <div class="u-border-3 u-border-custom-color-3 u-line u-line-horizontal u-line-1"></div>
-        <div class="u-expanded-width u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <h3 class="u-align-center u-text u-text-default u-text-1">새로운 그룹 추가</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-2"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-1" data-image-width="1280" data-image-height="1280"></div>
-                <p class="u-align-center u-text u-text-default u-text-2">새로운 그룹 창설</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-4">친구 추가</a>
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-1">
+                  <h2 class="u-custom-font u-font-playfair-display u-text u-text-black u-text-1">Our service will meet you<br>Welcome!!<br>Gather up
+                  </h2>
+                  <div class="u-border-6 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+                </div>
+              </div>
+              <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-1" data-image-width="1280" data-image-height="734">
+                <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-2"></div>
               </div>
             </div>
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item u-list-item-2">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-                <h3 class="u-align-center u-text u-text-default u-text-3">그룹명</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-3"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-2" data-image-width="1280" data-image-height="850"></div>
-                <p class="u-align-center u-text u-text-default u-text-4">그룹 상태 메세지</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-5">그룹 관리</a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item u-list-item-3">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                <h3 class="u-align-center u-text u-text-default u-text-5"> 그룹명</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-4"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-3" data-image-width="1280" data-image-height="853"></div>
-                <p class="u-align-center u-text u-text-default u-text-6"> 그룹 상태 메세지</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-6"> 그룹 관리</a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item u-list-item-4">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                <h3 class="u-align-center u-text u-text-default u-text-7"> 그룹명</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-5"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-4" data-image-width="1280" data-image-height="854"></div>
-                <p class="u-align-center u-text u-text-default u-text-8"> 그룹 상태 메세지</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-7"> 그룹 관리</a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item u-list-item-5">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                <h3 class="u-align-center u-text u-text-default u-text-9"> 그룹명</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-6"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-5" data-image-width="1280" data-image-height="853"></div>
-                <p class="u-align-center u-text u-text-default u-text-10"> 그룹 상태 메세지</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-8"> 그룹 관리</a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-custom-color-3 u-container-style u-list-item u-repeater-item u-list-item-6">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
-                <h3 class="u-align-center u-text u-text-default u-text-11"> 그룹명</h3>
-                <div class="u-border-4 u-border-custom-color-3 u-expanded-width u-line u-line-horizontal u-line-7"></div>
-                <div alt="" class="u-expanded-width u-image u-image-circle u-image-6" data-image-width="1157" data-image-height="1280"></div>
-                <p class="u-align-center u-text u-text-default u-text-12"> 그룹 상태 메세지</p>
-                <a href="" class="u-border-none u-btn u-button-style u-custom-color-3 u-btn-9"> 그룹 관리</a>
-              </div>
+          </div>
+        </div>
+        <div class="u-border-5 u-border-custom-color-2 u-expanded-width u-line u-line-horizontal u-line-2"></div>
+        <div class="u-container-style u-expanded-width u-group u-group-1">
+          <div class="u-container-layout u-valign-top u-container-layout-3">
+            <div class="custom-expanded u-clearfix u-custom-html u-custom-html-1">
+              <form action="GroupMakingService" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                <div class="u-form-group u-form-name">
+                  <label for="name-573f" class="u-custom-font u-label u-label-1">그룹명</label>
+                  <input type="text" id="name-573f" name="group_id" class="u-input u-input-rectangle" required="" placeholder="그룹의 이름을 입력해주세요">
+                </div>
+                
+                <div class="u-form-group u-form-group-8 u-form-select">
+                  <label for="select-9ff8" class="u-custom-font u-label u-label-8">관심사</label>
+                  <div class="u-form-select-wrapper">
+                    <select id="select-9ff8" name="select" class="u-input u-input-rectangle" size="5">
+                      <option value="soccer" data-calc="">축구</option>
+                      <option value="basketball" data-calc="">농구</option>
+                      <option value="baseball" data-calc="">야구</option>
+                      <option value="vollyball" data-calc="">배구</option>
+                      <option value="boardgame" data-calc="">보드게임</option>
+                    </select>
+                    <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+                  </div>
+                </div>
+                <div class="u-form-group u-form-group-9 u-form-textarea">
+                  <label for="textarea-41f3" class="u-custom-font u-label u-label-9">그룹 소개</label>
+                  <textarea rows="4" cols="50" id="textarea-41f3" name="textarea" class="u-input u-input-rectangle" required=""></textarea>
+                </div>
+                <div class="u-align-left u-form-group u-form-submit">
+                  <a href="#" class="u-border-none u-btn u-btn-1 u-btn-submit u-button-style u-custom-color-2">그룹 만들기</a>
+                  <input type="submit" value="submit" class="u-form-control-hidden">
+                </div>
+                <input type="hidden" value="" name="recaptchaResponse">
+                <input type="hidden" name="formServices" value="1a963035-d312-954c-783a-9471c4f282dd">
+              </form>
             </div>
           </div>
         </div>
@@ -182,14 +175,14 @@
         </p>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/templates" target="_blank">
-        <span>Templates</span>
+      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
+        <span>Best Website Design</span>
       </a>
       <p class="u-text">
         <span>created with</span>
       </p>
-      <a class="u-link" href="https://nicepage.studio" target="_blank">
-        <span>Best Free Website Builder</span>
+      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
+        <span>HTML Designer</span>
       </a>. 
     </section>
   

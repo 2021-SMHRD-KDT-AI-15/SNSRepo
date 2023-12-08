@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="sns.model.MatchDTO" isELIgnored="false"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,11 +91,11 @@
                 <div class="u-form-checkbox-group-wrapper">
                   <div class="u-input-row">
                     <input id="field-f564" type="checkbox" name="gender" value="남" class="u-field-input" data-calc="">
-                    <label class="u-field-label" for="field-f564">남자</label>
+                    <label class="u-field-label" for="field-f564">남성</label>
                   </div>
                   <div class="u-input-row">
                     <input id="field-f6eb" type="checkbox" name="gender" value="여" class="u-field-input" data-calc="">
-                    <label class="u-field-label" for="field-f6eb">여자</label>
+                    <label class="u-field-label" for="field-f6eb">여성</label>
                   </div>
                 </div>
               </div>
