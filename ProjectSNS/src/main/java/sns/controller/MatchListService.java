@@ -35,6 +35,8 @@ public class MatchListService extends HttpServlet {
 		p_list = dao.user_list(p_dto);
 		g_list = dao.group_list(g_dto);
 
+		System.out.println(p_dto.getRating());
+		
 		request.setAttribute("p_list", p_list);
 		request.setAttribute("g_list", g_list);
 		RequestDispatcher rd = request.getRequestDispatcher("MatchList.jsp");
