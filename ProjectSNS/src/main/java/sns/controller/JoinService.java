@@ -37,10 +37,14 @@ public class JoinService extends HttpServlet {
 		MemberDTO dto = new MemberDTO(Member_id, pw, name, mail, birth, img, dis, gender, rating_person, location);
 		int result = dao.join(dto);
 		
+		System.out.println("result : " +  result);
+		
 		if(result > 0) {
-			response.sendRedirect("로그인.html");
+			
+			
+			response.sendRedirect("Login.jsp");
 		}else {
-			response.sendRedirect("로그인.html");
+			response.sendRedirect("Login.jsp");
 		}
 
 	}

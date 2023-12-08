@@ -6,7 +6,7 @@
 
 	<!-- 게시판에 내용을 추가하는 sql 문장 -->
 	<insert id="upload" parameterType="sns.model.BoardDTO">
-		insert into content values(#{member_id},null, num_board.nextval,#{title},#{content},sysdate, #{attachment},#{like_count} )
+		insert into content values(#{member_id},null, num_board.nextval,#{title},#{content},sysdate, #{attachment},0 )
 	</insert>
 
 

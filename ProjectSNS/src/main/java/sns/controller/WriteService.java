@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -33,10 +34,11 @@ public class WriteService extends HttpServlet {
 	
 	MultipartRequest multi = new MultipartRequest(request, path, maxSize, encoding, rename);
 	
+	HttpSession session2 = request.getSession(); 
+	Object user_id = session2.getAttribute("user_id");
 	
 	
-	
-	String member_id = multi.getParameter("member_id");
+	String member_id = (String) user_id;
 	String title = multi.getParameter("title");
 	String content = multi.getParameter("content");
 	String like_count = multi.getParameter("like_count");
@@ -49,9 +51,10 @@ public class WriteService extends HttpServlet {
 	
 	int cnt = dao.upload(dto);
 	
-
-	
-	
+	if(cnt > 0) {
+		response.sendRedirect("BoardDetail");
+	}else {
+		response.sendRedirect("writemain.jsp");}
 	
 	
 	
