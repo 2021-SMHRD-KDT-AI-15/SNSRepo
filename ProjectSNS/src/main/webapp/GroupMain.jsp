@@ -10,7 +10,7 @@
 <meta name="keywords"
 	content="Gather up!!, &amp;apos;그룹예시1&amp;apos; 관리">
 <meta name="description" content="">
-<title>GroupLeaderMain</title>
+<title>GroupMain</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="GroupLeaderMain.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -238,14 +238,14 @@
 				data-animation-duration="1500" data-animation-delay="250">
 				<a
 					class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-black u-btn-1"
-					href="#group_id_section">${group_main.group_id}</a>
+					href="">${group_main.group_id}</a>
 			</h2>
 			<p class="u-align-center u-text u-text-2"
 				data-animation-name="customAnimationIn"
 				data-animation-duration="1500" data-animation-delay="250">
 				<a
 					class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-black u-btn-1"
-					href="#group_info_section">${group_main.group_info}</a>
+					href="">${group_main.group_info}</a>
 			</p>
 			<p class="u-align-center u-custom-font u-text u-text-3">
 				Group Manner<br> <br> <span
@@ -279,12 +279,7 @@
 								<td class="u-table-cell">${group_member_list.rating_person}</td>
 								<td class="u-table-cell u-table-cell-14">${group_member_list.location}</td>
 								<td class="u-table-cell">
-									<form action="GroupMemberKickService">
-										<input type="hidden" name="member_id"
-											value=${group_member_list.member_id}> <input
-											class="u-active-grey-60 u-border-1 u-border-active-grey-60 u-border-grey-60 u-border-hover-grey-60 u-btn u-button-style u-custom-color-3 u-hover-custom-color-4 u-btn-2"
-											type="submit" value="방출">
-									</form>
+									
 								</td>
 							</tr>
 						</c:forEach>
@@ -313,62 +308,6 @@
 		<a class="u-link" href="https://nicepage.com/html-website-builder"
 			target="_blank"> <span>HTML Builder</span>
 		</a>.
-	</section>
-	
-	<section
-		class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-14"
-		id="group_id_section">
-		<div class="u-container-style u-dialog u-grey-5 u-dialog-1">
-			<div class="u-container-layout u-container-layout-1">
-				<h2 class="u-align-center u-text u-text-default u-text-1">
-					그룹명<br>변경
-				</h2>
-				<div class="custom-expanded u-form u-form-1">
-					<form action="GroupIdChangeService"
-						class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form"
-						style="padding: 10px">
-						<div class="u-form-email u-form-group">
-							<input type="text" placeholder="변경하실 그룹이름을 입력해주세요"
-								id="group_id_section" name="new_input"
-								class="u-input u-input-rectangle" required>
-						</div>
-						<div class="u-align-left u-form-group u-form-submit">
-							<input type="submit"
-								class="u-black u-border-1 u-border-black u-btn u-btn-submit u-button-style u-btn-1"
-								value="변경">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section
-		class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-14"
-		id="group_info_section">
-		<div class="u-container-style u-dialog u-grey-5 u-dialog-1">
-			<div class="u-container-layout u-container-layout-1">
-				<h2 class="u-align-center u-text u-text-default u-text-1">
-					그룹 소개<br>변경
-				</h2>
-				<div class="custom-expanded u-form u-form-1">
-					<form action="GroupInfoChangeService"
-						class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form"
-						style="padding: 10px">
-						<div class="u-form-email u-form-group">
-							<input type="text" placeholder="변경하실 소개글을 입력해주세요"
-								id="group_id_section" name="new_input"
-								class="u-input u-input-rectangle" required>
-						</div>
-						<div class="u-align-left u-form-group u-form-submit">
-							<input type="submit"
-								class="u-black u-border-1 u-border-black u-btn u-btn-submit u-button-style u-btn-1"
-								value="변경">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
 	</section>
 
 </body>
