@@ -22,8 +22,6 @@ public class GroupListService extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("user_id", "ID1");
-		session.setAttribute("user_id", "최준성");
 		String user_id = (String) session.getAttribute("user_id");
 		
 		GroupDAO dao = new GroupDAO();

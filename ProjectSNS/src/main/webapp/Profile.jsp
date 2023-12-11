@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="sns.model.MatchDTO" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-<meta name="keywords"
-	content="Gather up!!, &amp;apos;그룹예시1&amp;apos; 관리">
+<meta name="keywords" content="Gather up!!, 상태메세지&nbsp;변경">
 <meta name="description" content="">
-<title>GroupMain</title>
+<title>Profile</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="GroupLeaderMain.css" media="screen">
+<link rel="stylesheet" href="Profile.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript" src="nicepage.js"
 	defer=""></script>
@@ -21,6 +19,19 @@
 
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -34,84 +45,12 @@
 <meta name="theme-color" content="#478ac9">
 <meta name="twitter:site" content="@">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GroupLeaderMain">
+<meta name="twitter:title" content="Profile">
 <meta name="twitter:description" content="">
-<meta property="og:title" content="GroupLeaderMain">
+<meta property="og:title" content="Profile">
 <meta property="og:type" content="website">
 <meta data-intl-tel-input-cdn-path="intlTelInput/">
-
-<style>
-.u-dialog-section-14 .u-dialog-1 {
-	width: 545px;
-	min-height: 317px;
-	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.3);
-	margin: 60px auto;
-}
-
-.u-dialog-section-14 .u-container-layout-1 {
-	padding: 30px;
-}
-
-.u-dialog-section-14 .u-text-1 {
-	font-size: 3rem;
-	margin: 0 auto;
-}
-
-.u-dialog-section-14 .u-form-1 {
-	margin: 78px auto 0;
-}
-
-.u-dialog-section-14 .u-btn-1 {
-	text-transform: uppercase;
-	background-image: none;
-	border-style: solid;
-}
-
-.u-dialog-section-14 .u-icon-1 {
-	width: 16px;
-	height: 16px;
-	left: auto;
-	top: 17px;
-	position: absolute;
-	right: 16px;
-}
-
-@media ( max-width : 1199px) {
-	.u-dialog-section-14 .u-dialog-1 {
-		height: auto;
-	}
-}
-
-@media ( max-width : 767px) {
-	.u-dialog-section-14 .u-dialog-1 {
-		width: 540px;
-	}
-	.u-dialog-section-14 .u-text-1 {
-		font-size: 2.25rem;
-	}
-	.u-dialog-section-14 .u-form-1 {
-		margin-top: 75px;
-	}
-}
-
-@media ( max-width : 575px) {
-	.u-dialog-section-14 .u-dialog-1 {
-		width: 340px;
-		min-height: 329px;
-	}
-	.u-dialog-section-14 .u-container-layout-1 {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	.u-dialog-section-14 .u-form-1 {
-		margin-top: 40px;
-	}
-}
-</style>
 </head>
-
-
-
 <body data-path-to-root="./" data-include-products="false"
 	class="u-body u-xl-mode" data-lang="en">
 	<header
@@ -207,6 +146,11 @@
 							type="search" name="search" value="" placeholder="Search">
 					</form>
 				</div>
+
+
+
+
+
 			</div>
 			<div
 				class="u-border-5 u-border-custom-color-2 u-border-no-left u-border-no-right u-border-no-top u-section-row u-sticky u-sticky-5c67 u-white u-section-row-2"
@@ -217,8 +161,12 @@
 							class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1"
 							href="BoardDetail">Gather up!!</a>
 					</h1>
-					<% String user_id = (String) session.getAttribute("user_id"); %>
-					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					<%
+					String user_id = (String) session.getAttribute("user_id");
+					%>
+					<p class="u-text u-text-default u-text-2">
+						<a href="ProfileService"><%=user_id%>님 환영합니다.</a>
+					</p>
 					<a href="BoardDetail"
 						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
 					<a href="FriendListService"
@@ -229,66 +177,99 @@
 						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
 				</div>
 
+
+
+
+
 			</div>
 		</div>
 	</header>
-	<section class="u-align-left u-clearfix u-section-1" id="carousel_3a99">
+	<section class="u-clearfix u-section-1" id="sec-1fa0">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			<h2 class="u-align-center u-text u-text-default u-text-1"
-				data-animation-name="customAnimationIn"
-				data-animation-duration="1500" data-animation-delay="250">
-				<a
-					class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-black u-btn-1"
-					href="">${group_main.group_id}</a>
-			</h2>
-			<p class="u-align-center u-text u-text-2"
-				data-animation-name="customAnimationIn"
-				data-animation-duration="1500" data-animation-delay="250">
-				<a
-					class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-black u-btn-1"
-					href="">${group_main.group_info}</a>
-			</p>
-			<p class="u-align-center u-custom-font u-text u-text-3">
-				Group Manner<br> <br> <span
-					style="text-decoration: underline !important;">${group_main.rating_group}</span>
-				<br>
-			</p>
 			<div
-				class="scroll u-expanded-width u-table u-table-responsive u-table-1">
-				<table class="u-table-entity">
-					<colgroup>
-						<col width="18.2%">
-						<col width="27.7%">
-						<col width="14.6%">
-						<col width="19.5%">
-						<col width="20%">
-					</colgroup>
-					<tbody class="u-align-center u-table-body">
-						<tr style="height: 71px;">
-							<td
-								class="u-align-center u-custom-color-3 u-first-column u-table-cell u-table-cell-1">회원명</td>
-							<td class="u-custom-color-3 u-table-cell u-table-cell-2">상태메세지</td>
-							<td class="u-custom-color-3 u-table-cell u-table-cell-3">매너점수</td>
-							<td class="u-custom-color-3 u-table-cell u-table-cell-4">설정된<br>활동지역
-							</td>
-							<td class="u-custom-color-3 u-table-cell u-table-cell-5"></td>
-						</tr>
-						<c:forEach var="group_member_list" items="${group_member_list}">
-							<tr style="height: 90px;">
-								<td class="u-align-center u-table-cell u-table-cell-11">${group_member_list.name}</td>
-								<td class="u-table-cell u-table-cell-12">${group_member_list.dis}</td>
-								<td class="u-table-cell">${group_member_list.rating_person}</td>
-								<td class="u-table-cell u-table-cell-14">${group_member_list.location}</td>
-								<td class="u-table-cell">
-									
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				class="custom-expanded data-layout-selected u-clearfix u-layout-wrap u-layout-wrap-1">
+				<div class="u-layout">
+					<div class="u-layout-row">
+						<div class="u-size-30">
+							<div class="u-layout-col">
+								<div
+									class="u-container-style u-layout-cell u-radius u-shape-round u-size-60 u-layout-cell-1">
+									<div
+										class="u-border-2 u-border-grey-10 u-container-layout u-valign-bottom u-container-layout-1">
+										<div class="u-image u-image-circle u-image-1" alt=""
+											data-image-width="1280" data-image-height="960"></div>
+										<p class="u-text u-text-1">${user_info.name}</p>
+										<p class="u-text u-text-default u-text-2">
+											<a
+												class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-palette-1-base u-btn-1"
+												href="#sec-2220">${user_info.dis}</a>
+										</p>
+										<p class="u-align-center u-text u-text-default u-text-3">
+											<span class="u-text-black">닉네임님의 매너 스코어</span> <br> <span
+												style="font-size: 1.875rem; text-decoration: underline !important;">${user_info.rating_person}점</span>
+											<br> <span class="u-text-black">좋아요! 이대로만 계속 합시다</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="u-size-30">
+							<div class="u-layout-col">
+								<div
+									class="u-align-center u-container-style u-layout-cell u-size-15 u-layout-cell-2">
+									<div
+										class="u-container-layout u-valign-middle u-container-layout-2">
+										<p class="u-text u-text-default u-text-4">
+											<a
+												class="u-active-none u-border-none u-btn u-button-link u-button-style u-none u-text-body-color u-text-hover-custom-color-3 u-btn-2"
+												href="관심있는-운동-관리.html">관심있는 활동 관리</a>
+										</p>
+									</div>
+								</div>
+								<div
+									class="u-container-style u-layout-cell u-size-15 u-layout-cell-3">
+									<div
+										class="u-container-layout u-valign-middle u-container-layout-3">
+										<p class="u-text u-text-default u-text-5">지역 설정</p>
+									</div>
+								</div>
+								<div
+									class="u-container-style u-layout-cell u-size-15 u-layout-cell-4">
+									<div
+										class="u-container-layout u-valign-middle u-container-layout-4">
+										<p class="u-text u-text-default u-text-6">
+											<a
+												class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-text-hover-custom-color-2 u-btn-3"
+												href="FriendList.html">친구 및 그룹 관리</a>
+										</p>
+									</div>
+								</div>
+								<div
+									class="u-container-style u-layout-cell u-size-15 u-layout-cell-5">
+									<div class="u-container-layout u-container-layout-5">
+										<p class="u-text u-text-default u-text-7">환경설정</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
 		id="sec-78d4">
 		<div class="u-clearfix u-sheet u-sheet-1">
@@ -298,18 +279,142 @@
 			</p>
 		</div>
 	</footer>
-	
 	<section class="u-backlink u-clearfix u-grey-80">
-		<a class="u-link" href="https://nicepage.com/website-mockup"
-			target="_blank"> <span>Website Mockup</span>
+		<a class="u-link" href="https://nicepage.com/website-templates"
+			target="_blank"> <span>Website Template</span>
 		</a>
 		<p class="u-text">
 			<span>created with</span>
 		</p>
-		<a class="u-link" href="https://nicepage.com/html-website-builder"
-			target="_blank"> <span>HTML Builder</span>
+		<a class="u-link" href="" target="_blank"> <span>Website
+				Builder Software</span>
 		</a>.
 	</section>
+	<section
+		class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-6"
+		id="sec-2220">
+		<div class="u-container-style u-dialog u-grey-5 u-dialog-1">
+			<div class="u-container-layout u-container-layout-1">
+				<h2 class="u-align-center u-text u-text-default u-text-1">
+					상태메세지&nbsp;<br>변경
+				</h2>
+				<div class="u-expanded-width u-form u-form-1">
+					<form action="https://forms.nicepagesrv.com/v2/form/process"
+						class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form"
+						style="padding: 10px" source="email" name="form">
+						<div class="u-form-email u-form-group">
+							<label for="group_id_section" class="u-label"></label> <input
+								type="email" placeholder="상태메세지를 입력해주세요" id="group_id_section"
+								name="email" class="u-input u-input-rectangle" required="">
+						</div>
+						<div class="u-align-left u-form-group u-form-submit">
+							<a href="#"
+								class="u-black u-border-1 u-border-black u-btn u-btn-submit u-button-style u-btn-1">변경</a>
+							<input type="submit" value="submit" class="u-form-control-hidden">
+						</div>
+						<div class="u-form-send-message u-form-send-success">Thank
+							you! Your message has been sent.</div>
+						<div class="u-form-send-error u-form-send-message">Unable to
+							send your message. Please fix errors then try again.</div>
+						<input type="hidden" value="" name="recaptchaResponse"> <input
+							type="hidden" name="formServices"
+							value="1a963035-d312-954c-783a-9471c4f282dd">
+					</form>
+				</div>
+			</div>
+			<button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1">
+				<svg class="u-svg-link" preserveAspectRatio="xMidYMin slice"
+					viewBox="0 0 348.333 348.334" style="">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="#svg-9711"></use></svg>
+				<svg xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+					xml:space="preserve" class="u-svg-content"
+					viewBox="0 0 348.333 348.334" x="0px" y="0px" id="svg-9711"
+					style="enable-background: new 0 0 348.333 348.334;">
+					<g>
+					<path
+						d="M336.559,68.611L231.016,174.165l105.543,105.549c15.699,15.705,15.699,41.145,0,56.85   c-7.844,7.844-18.128,11.769-28.407,11.769c-10.296,0-20.581-3.919-28.419-11.769L174.167,231.003L68.609,336.563   c-7.843,7.844-18.128,11.769-28.416,11.769c-10.285,0-20.563-3.919-28.413-11.769c-15.699-15.698-15.699-41.139,0-56.85   l105.54-105.549L11.774,68.611c-15.699-15.699-15.699-41.145,0-56.844c15.696-15.687,41.127-15.687,56.829,0l105.563,105.554   L279.721,11.767c15.705-15.687,41.139-15.687,56.832,0C352.258,27.466,352.258,52.912,336.559,68.611z"></path>
+					</g>
+				</svg>
+			</button>
+		</div>
+	</section>
+	<style>
+.u-dialog-section-6 .u-dialog-1 {
+	width: 545px;
+	min-height: 317px;
+	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.3);
+	margin: 60px auto;
+}
 
+.u-dialog-section-6 .u-container-layout-1 {
+	padding: 30px;
+}
+
+.u-dialog-section-6 .u-text-1 {
+	font-size: 3rem;
+	margin: 0 auto;
+}
+
+.u-dialog-section-6 .u-form-1 {
+	margin: 106px auto 0;
+}
+
+.u-dialog-section-6 .u-btn-1 {
+	text-transform: uppercase;
+	background-image: none;
+	border-style: solid;
+}
+
+.u-dialog-section-6 .u-icon-1 {
+	width: 16px;
+	height: 16px;
+	left: auto;
+	top: 17px;
+	position: absolute;
+	right: 16px;
+}
+
+@media ( max-width : 1199px) {
+	.u-dialog-section-6 .u-dialog-1 {
+		height: auto;
+	}
+	.u-dialog-section-6 .u-form-1 {
+		margin-right: initial;
+		margin-left: initial;
+	}
+}
+
+@media ( max-width : 767px) {
+	.u-dialog-section-6 .u-dialog-1 {
+		width: 540px;
+	}
+	.u-dialog-section-6 .u-text-1 {
+		font-size: 2.25rem;
+	}
+	.u-dialog-section-6 .u-form-1 {
+		margin-top: 100px;
+		margin-right: initial;
+		margin-left: initial;
+	}
+}
+
+@media ( max-width : 575px) {
+	.u-dialog-section-6 .u-dialog-1 {
+		width: 340px;
+		min-height: 329px;
+	}
+	.u-dialog-section-6 .u-container-layout-1 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.u-dialog-section-6 .u-form-1 {
+		margin-top: 90px;
+		margin-right: initial;
+		margin-left: initial;
+	}
+}
+</style>
 </body>
 </html>
