@@ -17,14 +17,14 @@ socket.onclose =function () {
 };
 socket.onmessage = function (response) {
 	var msg = JSON.parse(response.data);
-	// Check for the type of message received
+	// 메세지 타입 체크
     if (msg.type === 'beforList' && stop) {
-        // Display chat history
+        // 채팅기록 불러오기
         msg.chatHistory.forEach(function (historyMsg) {
             displayChatHistory(historyMsg);
         });
 
-        // Display users
+        // 기존 접속해 있는 유저 불러오기
         msg.users.forEach(function (beforUsr) {
             var usr = $('<div/>').attr({ id: beforUsr, class: 'members' }).text(beforUsr);
             $('#users').append(usr);
@@ -35,6 +35,7 @@ socket.onmessage = function (response) {
         makeMsg(msg);
     }
 }
+/* 이전 채팅기록 로드하기*/
 function displayChatHistory(historyMsg) {
     var cls = 'friendsMsg';
     if (historyMsg.fromUser === user) {
@@ -42,7 +43,7 @@ function displayChatHistory(historyMsg) {
     }
     var child = $('<div/>').attr('class', cls).append(
         $('<span/>').text(historyMsg.fromUser),
-        $('<small/>').text(' (' + historyMsg.timestamp + ') '),
+        $('<small/>').text(' (' + historyMsg.timestamp.replace('T',' ').slice(0, -5) + ') '),
         $('<span/>').text(' : ' + historyMsg.param)
     );
     $('#console-container').append(child);
@@ -83,7 +84,7 @@ function makeMsg(msg){
 	}
 }
 
-// 시간 표시 함수
+// 시간 입력/표시 함수
 function yymmhhddss(){
     var time = new Date();
     var year = time.getFullYear();
@@ -99,4 +100,3 @@ function yymmhhddss(){
     param = year + '-' + month + '-' + day + ' ' + hhmmss;
     return param;
 }
-
