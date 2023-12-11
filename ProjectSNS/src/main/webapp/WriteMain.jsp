@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <title>게시글 작성화면</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="게시글-작성화면.css" media="screen">
+<link rel="stylesheet" href="WriteMain.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
@@ -125,6 +125,7 @@
             </div>
           </div>
         </div>
+        <hr>
         <div class="u-border-2 u-border-grey-15 u-container-style u-expanded-width u-group u-group-1">
           <div class="u-container-layout u-container-layout-5">
             <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1"></div>
@@ -133,7 +134,7 @@
               <form action="WriteService" method="post" enctype="multipart/form-data">
              <div class="u-form-group u-form-name">
                 <label for="name-4956" class="u-label">작성자 : </label>
-                <b name="Member_id"><%=user_id %></b><br>
+                <b name="Member_id">김연재</b><br>
               </div>
               <div class="u-form-group u-form-name">
                 <label for="name-4956" class="u-label">제목</label>
@@ -147,7 +148,12 @@
                 <input type="file" id="file-upload-9fd8" name="attachment" class="u-input u-input-rectangle u-text-black" required="" accept="IMAGES" multiple="multiple">
               </span>
             </div>
-            <input type="submit" value="게시글 작성"> 
+           <div style="text-align: right;">
+  <input type="submit" value="게시글 작성" style="display: inline-block; background-color: #fe7054; color: white; border: none; padding: 10px 20px; border-radius: 50px; margin-top: 5px;">
+
+
+
+</div>
             </form>
           </div>
         </div>

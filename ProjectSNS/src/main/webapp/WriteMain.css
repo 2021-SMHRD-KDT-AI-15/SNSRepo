@@ -4,7 +4,7 @@
 
 .u-section-1 .u-list-1 {
   width: 584px;
-  margin: 10px 64px 0 auto;
+  margin: 324px 64px 0 auto;
 }
 
 .u-section-1 .u-repeater-1 {
@@ -70,7 +70,7 @@
 }
 
 .u-section-1 .u-group-1 {
-  min-height: 300px;
+  min-height: 647px;
   margin-top: 30px;
   margin-bottom: 60px;
   height: auto;
@@ -93,7 +93,7 @@
 .u-section-1 .u-btn-5 {
   background-image: none;
   --radius: 10px;
-  
+  margin: 41px auto 0 236px;
 }
 
 @media (max-width: 1199px) {
@@ -195,14 +195,6 @@
   .u-section-1 .u-btn-5 {
     margin-left: 0;
   }
-  
- #g_bt {
-    position: fixed;
-    right: 0px;
-    bottom: 0px;
-}
-  
- 
 }@font-face {
   font-family: 'Amarillo';
   font-style: normal;
