@@ -43,8 +43,8 @@ function displayChatHistory(historyMsg) {
     }
     var child = $('<div/>').attr('class', cls).append(
         $('<span/>').text(historyMsg.fromUser),
-        $('<small/>').text(' (' + historyMsg.timestamp.replace('T',' ').slice(0, -5) + ') '),
-        $('<span/>').text(' : ' + historyMsg.param)
+        $('<span/>').text(' : ' + historyMsg.param),
+        $('<br><small/>').text(' (' + historyMsg.timestamp.replace('T',' ').slice(0, -5) + ') '),
     );
     $('#console-container').append(child);
     $('#console-container').animate({
@@ -74,8 +74,8 @@ function makeMsg(msg){
 		}
 		var child = $('<div/>').attr('class',cls).append(
 			$('<span/>').text(msg.fromUser),
-			$('<small/>').text(' ('+yymmhhddss()+ ') '),
-			$('<span/>').text(' : '+msg.param)
+			$('<span/>').text(' : '+msg.param),
+            $('<br><small/>').text(' ('+yymmhhddss()+ ') ')
 		);
 		$('#console-container').append(child);
 		$('#console-container').animate({
