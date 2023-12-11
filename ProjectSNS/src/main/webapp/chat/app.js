@@ -52,7 +52,7 @@ async function saveChatMessage(room, chatContent, chatDate, attachment, memberId
     try {
         connection = await oracledb.getConnection(dbConfig);
         console.log('OracleDB connected');
-
+        
         const result = await connection.execute(
             `INSERT INTO CHAT_CONTENT (CHAT_ID, CHAT_CONTENT, CHAT_DATE, ATTACHMENT, MEMBER_ID) VALUES (:room, :chatContent, :chatDate, :attachment, :memberId)`,
             [room, chatContent, chatDate, attachment, memberId]
@@ -156,7 +156,7 @@ wsServer.on('request', async function(request) {
 
     connection.on('close', function(reasonCode, description) {   // 커넥션이 끊기면
         msgSender(rooms.get(user), null, requestType.C).then((callbak)=>{  // 방에서 나가는 메세지
-            rooms.delete(user);  // 방 ID 목록에서 삭제
+            // rooms.delete(user);  // 방 ID 목록에서 삭제하고 싶을 때
         }).catch((err)=>{
             console.log(err);
         });
