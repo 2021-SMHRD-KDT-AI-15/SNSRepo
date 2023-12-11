@@ -71,9 +71,7 @@ async function saveChatMessage(room, chatContent, chatDate, attachment, memberId
         }
     }
 }
-
-// ... (existing code)
-
+// 이전기록 데이터베이스에서 불러오기
 async function sendBeforUserList(connection, room) {
     try {
         const beforList = [];
@@ -82,8 +80,6 @@ async function sendBeforUserList(connection, room) {
                 beforList.push(target[1].user);
             }
         }
-
-        // Fetch chat history from the database
         const chatHistory = await getChatHistory(room);
 
         const response = JSON.stringify({
@@ -147,13 +143,13 @@ wsServer.on('request', async function(request) {
         if (message.type === 'utf8') {
             const chatContent = message.utf8Data;
             const chatDate = new Date().toISOString();
-            const attachment = ''; // You may modify this based on your application
-            const memberId = /*identify.*/user;
+            const attachment = ''; // 추후 개량할 것
+            const memberId = user; // ID
     
-            // Save the chat message to OracleDB
+            // OracleDB에 저장
             saveChatMessage(room, chatContent, chatDate, attachment, memberId);
     
-            // Send the chat message to other users in the room
+            // 다른 사람들에게 메세지 표시
             msgSender(rooms.get(user), message, requestType.B);
         }
     });
@@ -182,13 +178,13 @@ function msgSender(identify, message, type){
             if(identify.room == target[1].room){  //같은방에 있는 사람이면 전송
                 //타입별 전송 구간(최초접속,메시지전송,방나감)
                 if (type == requestType.A ) {  
-                    var res = JSON.stringify({param:'님이 채팅방에 입장하였습니다',fromUser:identify.user, type:type});
+                    var res = JSON.stringify({param:'님이 접속하였습니다',fromUser:identify.user, type:type});
                     target[1].con.sendUTF(res);
                 } else if (type == requestType.B && message.type === 'utf8') {
                     var res = JSON.stringify({param:message.utf8Data,fromUser:identify.user, type:type});
                     target[1].con.sendUTF(res);
                 } else if (type == requestType.C) {
-                    var res = JSON.stringify({param:'채팅방을 나갔습니다',fromUser:identify.user, type:type});
+                    var res = JSON.stringify({param:'님이 채팅방을 나갔습니다',fromUser:identify.user, type:type});
                     target[1].con.sendUTF(res);
                 }
             }
