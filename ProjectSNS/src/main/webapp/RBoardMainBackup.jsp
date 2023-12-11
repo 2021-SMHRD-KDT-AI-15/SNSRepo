@@ -1,12 +1,18 @@
+<%@page import="sns.model.BoardDTO"%>
+<%@page import="sns.model.commentDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="gather up!">
     <meta name="description" content="">
-    <title>게시글 작성화면</title>
+    <title>게시글 나오는곳</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="게시글-작성화면.css" media="screen">
+<link rel="stylesheet" href="RBoardMain.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
@@ -39,12 +45,55 @@
     <meta name="theme-color" content="#478ac9">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="게시글 작성화면">
+    <meta name="twitter:title" content="RBoardMain">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="게시글 작성화면">
+    <meta property="og:title" content="RBoardMain">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-overlap u-overlap-transparent u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows" style="margin-bottom: 0px;">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/">
+  
+  <style type="text/css">
+  
+  #g_bt {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
+
+.js-load {
+	display: none;
+}
+.js-load.active {
+	display: block;
+}
+.js-load:after {
+	display: none;
+}
+.btn-wrap {
+	display: block;
+}
+ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 - 12px); margin:12px 6px 0; }
+.more {width:100%; line-height:30px; color:#72af2c;font-size:18px;font-weight:700;text-align:center;border:1px solid #72af2c;border-radius:6px;display:block;}
+
+  </style>
+  
+   <script>
+    let 시작인덱스 = 0; // 컨텐츠 표시를 시작할 인덱스를 초기화합니다.
+
+    function 더보기() {
+        const 게시글들 = document.querySelectorAll('.hidden');
+        
+        for (let i = 시작인덱스; i < 시작인덱스 + 3 && i < 게시글들.length; i++) {
+            게시글들[i].style.display = 'block';
+        }
+
+        시작인덱스 += 3; // 다음 컨텐츠를 위해 시작 인덱스를 업데이트합니다.
+    }
+</script>
+  
+  
+  
+  </head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows" style="margin-bottom: 0px;">
         <div class="u-custom-color-2 u-section-row u-section-row-1" id="sec-46aa">
           <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-social-icons u-spacing-10 u-social-icons-1">
@@ -84,16 +133,16 @@
             <h1 class="u-custom-font u-text u-text-default u-text-1">
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="BoardDetail">Gather up!!</a>
             </h1>
-            <% String user_id = (String) session.getAttribute("user_id"); %>
-				<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
-				<a href="BoardDetail"
-					class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
-				<a href="FriendListService"
-					class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
-				<a href="MatchMain.jsp"
-					class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
-				<a href="map.jsp"
-					class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
+       		<% String user_id = (String) session.getAttribute("user_id"); %>
+					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					<a href="BoardDetail"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
+					<a href="FriendListService"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
+					<a href="MatchMain.jsp"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
+					<a href="map.jsp"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
           </div>
           
           
@@ -102,65 +151,141 @@
           
         </div>
       </div></header>
-    <section class="u-clearfix u-section-1" id="sec-1c29">
+    <section class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-clearfix u-section-1" id="sec-1c29">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-list u-list-1">
+        <div class="custom-expanded u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-1">
-                <a href="https://nicepage.com/joomla-templates" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-item u-hover-custom-color-4 u-radius u-btn-1">전체</a>
-              </div>
+							<a href="https://nicepage.com/joomla-templates"
+								class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-item u-hover-custom-color-4 u-radius u-btn-1">전체</a>
+						</div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-2">
                 <a href="https://nicepage.com/joomla-templates" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-item u-hover-custom-color-4 u-radius u-btn-2">트렌딩</a>
               </div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <a href="https://nicepage.com/joomla-templates" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-item u-hover-custom-color-4 u-radius u-btn-3">친구/그룹</a>
               </div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-4">
                 <a href="https://nicepage.com/joomla-templates" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-custom-item u-hover-custom-color-4 u-radius u-btn-4">종목별</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="u-border-2 u-border-grey-15 u-container-style u-expanded-width u-group u-group-1">
-          <div class="u-container-layout u-container-layout-5">
-            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1"></div>
-            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-2">
-              <div class="u-form-group u-form-name">
-                <label for="name-4956" class="u-label">제목</label>
-                <input type="text" placeholder="제목을 입력해주세요" id="name-4956" name="title" class="u-input u-input-rectangle" required="">
-              </div>
-              <div class="u-form-group u-form-message">
-                <label for="message-4956" class="u-label">내용</label>
-                <textarea placeholder="게시글 내용을 입력해주세요." rows="10" cols="50" id="message-4956" name="content" class="u-input u-input-rectangle" required=""></textarea>
-              </div>
-              <span class="u-file-group">
-                <input type="file" id="file-upload-9fd8" name="file[]" class="u-input u-input-rectangle u-text-black" required="" accept="IMAGES" multiple="multiple">
-              </span>
-            </div>
-            <a href="https://nicepage.com/c/medicine-science-html-templates" class="u-active-custom-color-4 u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-radius u-btn-5">게시글 작성</a>
+        <hr>
+        <%
+        ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
+        ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");
+        %>
+
+        <!-- 각 게시물 내용 표시  7값 나중에 숫자 따로 줘서 바꿔줘야해!!-->
+		<%for (int i = 0; i <= 7; i++) { %>
+            <!-- 각 게시물 내용 표시 -->
+            <% if (i < 3) { %>
+            <div>
+        <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
+        <div style="text-align: center;">
+        <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
+        </div>
+        <hr>
+        <div>
+          <div style="display: block; text-align: center;">
+          <div style="display: block; text-align: right;">
+           <b> 작성자 : </b> <b><%= content_list.get(i).getMember_id() %></b>
+           </div>
+           <p><%= content_list.get(i).getContent() %> </p>
           </div>
         </div>
-      </div>
+        <div>
+        <hr>
+				<div>
+				<%
+				int con_id = content_list.get(i).getContent_id();
+				
+				for (int j = 0; j < comment_list.size() - 2; j++) {
+				    if (comment_list.get(j) != null) { // null 체크 추가
+				        int co_id = Integer.parseInt(comment_list.get(j).getContent_id());
+				        if (con_id == co_id) { %>
+				            <b><%= comment_list.get(j).getComment_id() %> : <%= comment_list.get(j).getP_comment() %> </b>
+				            <hr>
+				        <% } 
+				    }
+				}%> 
+				<div>
+				
+						<form action="commentDetail" method="post" style="text-align: center;">
+					    <div style="display: inline-block; text-align: left;">
+					        <input type="hidden" name="content_id" value="<%= content_list.get(i).getContent_id() %>"><br>
+					        <input type="hidden" name="member_id" value="<%= user_id %>"><br>
+					        <input type="text" name="comment_id"><br>
+					            <input type="text" name="p_comment"><br>
+					        <div style="text-align: center;">
+					            <input type="submit" value="댓글작성"><br>
+					        </div>
+					    </div>
+					</form>
+				</div>
+				</div>
+				</div>
+				</div>
+				
+            <hr>
+            <%}else if(3<= i && i <= 5 ){ %>
+                <div class="hidden" style="display: none;">
+             <div>
+        <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
+        <div style="text-align: center;">
+        <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
+        </div>
+        <hr>
+        <div>
+          <div style="display: block; text-align: center;">
+          <div style="display: block; text-align: right;">
+           <b> 작성자 : </b> <b><%= content_list.get(i).getMember_id() %></b>
+           </div>
+           <p><%= content_list.get(i).getContent() %> </p>
+          </div>
+        </div>
+        </div>
+        </div>
+        <hr>
+                
+                
+                
+            <%}else if(6<= i && i <= 8 ){ %>
+            <div class="hidden" style="display: none;">
+            <b>제목</b>
+            <b id="title_<%= i %>"><%= content_list.get(i).getTitle() %></b>
+            <b>작성자</b>
+            <br>
+            <b id="member_id_<%= i %>"><%= content_list.get(i).getMember_id() %></b>
+            <b>다운로드</b>
+            <a href="" download>다운로드</a>
+            <br>
+            <b>내용</b>
+            <br>
+            <b id="content_<%= i %>"><%= content_list.get(i).getContent() %></b>
+            <br>
+            <img src="file/<%= content_list.get(i).getAttachment() %>" />
+            <br>
+            <b>테스트</b>
+            <b id="test_<%= i %>">123</b>
+            <hr>
+        </div><%}} %>
+
+				</div>
+        <a href="WriteMain.jsp" class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5" id = "g_bt">게시글 작성</a>
+         <button id="more" onclick="더보기()">더 보기</button>
     </section>
+   
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-78d4"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">인공지능 융합서비스<br>개발자 과정(NCS) 15차<br>1차 프로젝트<br>SNS하고 싶조<br>김연재, 정유석, 정명훈, 최준성

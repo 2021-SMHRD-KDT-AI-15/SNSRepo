@@ -22,7 +22,6 @@ public class FriendListService extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("user_id", "ID1");
 		String user_id = (String) session.getAttribute("user_id");
 		
 		FriendDAO dao = new FriendDAO();

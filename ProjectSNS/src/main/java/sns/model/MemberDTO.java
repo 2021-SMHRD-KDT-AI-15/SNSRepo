@@ -47,6 +47,8 @@ public class MemberDTO {
 		this.pw = pw;
 	}
 	
+	
+	
 	public MemberDTO() {
 		
 	}
