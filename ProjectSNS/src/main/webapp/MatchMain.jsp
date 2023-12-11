@@ -72,8 +72,8 @@
             <h1 class="u-custom-font u-text u-text-default u-text-1">
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="게시글-나오는곳.html">Gather up!!</a>
             </h1>
-            <% String user_name = (String) session.getAttribute("user_name"); %>
-					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_name %>님 환영합니다.</a></p>
+            <% String user_id = (String) session.getAttribute("user_id"); %>
+					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
 					<a href="BoardDetail"
 						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
 					<a href="FriendListService"

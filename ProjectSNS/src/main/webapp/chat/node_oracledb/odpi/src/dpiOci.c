@@ -301,7 +301,7 @@ typedef int (*dpiOciFnType__objectSetAttr)(void *env, void *err,
 typedef int (*dpiOciFnType__paramGet)(const void *hndlp, uint32_t htype,
         void *errhp, void **parmdpp, uint32_t pos);
 typedef int (*dpiOciFnType__passwordChange)(void *svchp, void *errhp,
-        const char *user_name, uint32_t usernm_len, const char *opasswd,
+        const char *user_id, uint32_t usernm_len, const char *opasswd,
         uint32_t opasswd_len, const char *npasswd, uint32_t npasswd_len,
         uint32_t mode);
 typedef int (*dpiOciFnType__ping)(void *svchp, void *errhp, uint32_t mode);
