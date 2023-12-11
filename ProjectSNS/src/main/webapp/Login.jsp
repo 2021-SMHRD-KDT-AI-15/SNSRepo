@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="gather up!">
     <meta name="description" content="">
-    <title>로그인</title>
+    <title>Login</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="로그인.css" media="screen">
+<link rel="stylesheet" href="Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
@@ -116,7 +116,7 @@
             <div class="u-border-3 u-border-grey-25 u-line u-line-horizontal u-line-1"></div>
             <div class="u-align-center-xs u-container-style u-custom-color-6 u-expanded-width u-group u-radius u-shape-round u-group-2">
               <div class="u-container-layout u-container-layout-2">
-                <a href="회원가입.jsp" class="u-border-1 u-border-active-palette-2-light-2 u-border-hover-palette-2-light-2 u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-login-control u-login-create-account u-none u-text-active-palette-2-light-2 u-text-custom-color-2 u-text-hover-palette-2-light-2 u-btn-2">회원가입</a>
+                <a href="Join.jsp" class="u-border-1 u-border-active-palette-2-light-2 u-border-hover-palette-2-light-2 u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-login-control u-login-create-account u-none u-text-active-palette-2-light-2 u-text-custom-color-2 u-text-hover-palette-2-light-2 u-btn-2">회원가입</a>
               </div>
             </div>
           </div>
@@ -126,13 +126,6 @@
     </section>
     
 
-    
-    
-    
-    
-    
-    
-    
     
     
     

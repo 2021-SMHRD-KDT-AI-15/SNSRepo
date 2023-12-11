@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <title>게시글 나오는곳</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="게시글-나오는곳.css" media="screen">
+<link rel="stylesheet" href="RBoardMain.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 6.0.3, nicepage.com">
@@ -20,9 +20,7 @@
     
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
-    <% 
-        ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
-        ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");%>
+    
     
     
     
@@ -47,12 +45,55 @@
     <meta name="theme-color" content="#478ac9">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="게시글 나오는곳">
+    <meta name="twitter:title" content="RBoardMain">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="게시글 나오는곳">
+    <meta property="og:title" content="RBoardMain">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/">
+  
+  <style type="text/css">
+  
+  #g_bt {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
+
+.js-load {
+	display: none;
+}
+.js-load.active {
+	display: block;
+}
+.js-load:after {
+	display: none;
+}
+.btn-wrap {
+	display: block;
+}
+ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 - 12px); margin:12px 6px 0; }
+.more {width:100%; line-height:30px; color:#72af2c;font-size:18px;font-weight:700;text-align:center;border:1px solid #72af2c;border-radius:6px;display:block;}
+
+  </style>
+  
+   <script>
+    let 시작인덱스 = 0; // 컨텐츠 표시를 시작할 인덱스를 초기화합니다.
+
+    function 더보기() {
+        const 게시글들 = document.querySelectorAll('.hidden');
+        
+        for (let i = 시작인덱스; i < 시작인덱스 + 3 && i < 게시글들.length; i++) {
+            게시글들[i].style.display = 'block';
+        }
+
+        시작인덱스 += 3; // 다음 컨텐츠를 위해 시작 인덱스를 업데이트합니다.
+    }
+</script>
+  
+  
+  
+  </head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-0c53"><div class="u-section-rows" style="margin-bottom: 0px;">
         <div class="u-custom-color-2 u-section-row u-section-row-1" id="sec-46aa">
           <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-social-icons u-spacing-10 u-social-icons-1">
@@ -105,8 +146,6 @@
           
         </div>
       </div></header>
-      
-         
     <section class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-clearfix u-section-1" id="sec-1c29">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="custom-expanded u-list u-list-1">
@@ -133,184 +172,108 @@
             </div>
           </div>
         </div>
-          
-            <% for (int i = 0; i <= 7; i++) { %>
+        <hr>
+        <%ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
+        ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");
+        HttpSession session2 = request.getSession(); 
+    	Object user_id = session2.getAttribute("user_id");
+        %>
+
+        <!-- 각 게시물 내용 표시  7값 나중에 숫자 따로 줘서 바꿔줘야해!!-->
+		<%for (int i = 0; i <= 7; i++) { %>
             <!-- 각 게시물 내용 표시 -->
-            <%if (i < 3 ){
-            	System.out.println(content_list.get(i).getAttachment());
-            	%>
-         
-        <div class="u-border-3 u-border-grey-30 u-expanded-width u-line u-line-horizontal u-line-1"></div>
-        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          
-          
-    
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-size-30-xl u-size-31-lg u-size-31-md u-size-31-sm u-size-31-xs">
-                <div class="u-layout-col">
-                  <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
-                    <div class="u-container-layout u-container-layout-5">
-                      <div class="u-carousel u-expanded-width u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-show-text-on-hover u-gallery-1" data-interval="5000" data-u-ride="carousel" id="carousel-c3e7">
-                        <div class="u-carousel-inner u-gallery-inner" role="listbox">
-                          <div class="u-active u-carousel-item u-effect-fade u-gallery-item u-carousel-item-1">
-                            <div class="u-back-slide" data-image-width="1280" data-image-height="853">
-                              <img class="u-back-image u-expanded" src="images/<%=content_list.get(i).getAttachment() %>">
-                            </div>
-                          </div>
-                          <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-2">
-                            <div class="u-back-slide" data-image-width="1280" data-image-height="835">
-                              <img class="u-back-image u-expanded" src="images/2aebe2940643145a2d551d46a453c169a77f0265e5ff7ea39e26364fda169608508695b94b483e598ab2de2b4d6ac079389f0a830f2f62e9b4a89f_1280.jpg">
-                            </div>
-                            <div class="u-over-slide u-shading u-over-slide-2">
-                              <h3 class="u-gallery-heading">Sample Title</h3>
-                              <p class="u-gallery-text">Sample Text</p>
-                            </div>
-                          </div>
-                          <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-3" data-image-width="1280" data-image-height="853">
-                            <div class="u-back-slide">
-                              <img class="u-back-image u-expanded" src="https://pixabay.com/get/g160fb496d50317b10040b840e7d82b7f13892e620f27325ec569799e3a985ddfecce6c43af029ba1b1c3481c0d73f92e2b521396f4ed337c360ba2b5f68cf9ba_1280.jpg">
-                            </div>
-                            <div class="u-over-slide u-shading u-over-slide-3"></div>
-                            <style data-mode="XL"></style>
-                            <style data-mode="LG" data-visited="true"></style>
-                            <style data-mode="MD" data-visited="true"></style>
-                            <style data-mode="SM"></style>
-                            <style data-mode="XS"></style>
-                          </div>
-                          <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-4" data-image-width="1280" data-image-height="720">
-                            <div class="u-back-slide">
-                              <img class="u-back-image u-expanded" src="https://pixabay.com/get/g2baaf68ec1bdf0defd2b036718e5051a3fc789aff67eab2143c89309c1b5e73812d54c37111e59dabfbda6d20c4a15b497e628c18f72d08d770a6d78a804fde6_1280.jpg">
-                            </div>
-                            <div class="u-over-slide u-shading u-over-slide-4"></div>
-                            <style data-mode="XL"></style>
-                            <style data-mode="LG"></style>
-                            <style data-mode="MD" data-visited="true"></style>
-                            <style data-mode="SM"></style>
-                            <style data-mode="XS"></style>
-                          </div>
-                          <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-5" data-image-width="1280" data-image-height="853">
-                            <div class="u-back-slide">
-                              <img class="u-back-image u-expanded" src="https://pixabay.com/get/ga1defc1898c6c22b0434e9128f017ce7d547465581630159ce3308e33f327eef6af0b269208a7dc11d882d639a0ed6c6d6be5488eddb0519dd2983ea12cf7613_1280.jpg">
-                            </div>
-                            <div class="u-over-slide u-shading u-over-slide-5"></div>
-                            <style data-mode="XL"></style>
-                            <style data-mode="LG"></style>
-                            <style data-mode="MD" data-visited="true"></style>
-                            <style data-mode="SM"></style>
-                            <style data-mode="XS"></style>
-                          </div>
-                        </div>
-                          <span aria-hidden="true">
-                            <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-                          </span>
-                          <span class="sr-only">
-                            <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-                          </span>
-                        </a>
-                          <span aria-hidden="true">
-                            <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-                          </span>
-                          <span class="sr-only">
-                            <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-size-29-lg u-size-29-md u-size-29-sm u-size-29-xs u-size-30-xl">
-                <div class="u-layout-col">
-                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-container-layout-6">
-                      <div class="custom-expanded u-table u-table-responsive u-table-1">
-                        <table class="u-table-entity">
-                          <colgroup>
-                            <col width="19.7%">
-                            <col width="80.3%">
-                          </colgroup>
-                          
-                          
-                          
-                          
-                          <tbody class="u-table-body">
-                           <% for(int j = 0; j < comment_list.size()-2; j++){  %>
-                            <%if(content_list.get(0).getContent_id() == Integer.parseInt(comment_list.get(j).getContent_id())){%>
-                          <tr style="height: 44px;">
-                              <td class="u-border-1 u-border-grey-dark-1 u-table-cell" >
-                              댓글 입력자 : <%= comment_list.get(j).getComment_id() %>
-                              </td>
-                              <td class="u-border-1 u-border-grey-dark-1 u-table-cell">
-                              댓글 내용<br>
-                              <%= comment_list.get(j).getP_comment() %>
-                              </td>
-                            </tr>
-                            <%} %>
-                            <%} %>
-		                <%} %>
-		                
-                             
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
-                    <div class="u-container-layout u-container-layout-7">
-                      <div class="u-expanded-width u-form u-form-1">
-                      
-                      
-                      
-                      
-                        <form action="commentDetail" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
-                          <div class="u-form-group u-form-message">
-                            <label for="message-6e23" class="u-label">댓글</label>
-                            <textarea placeholder="댓글을 입력하세요" rows="4" cols="50" id="message-6e23" name="p_comment" class="u-input u-input-rectangle" required=""></textarea>
-                          </div>
-                          <div class="u-align-center u-form-group u-form-submit">
-                            <input type="submit" value="댓글 작성" class="u-form-control-hidden">
-                          </div>
-                        </form>
-                      
-                      
-                      
-                      
-                      
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% if (i < 3) { %>
+        <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
+        <div style="text-align: center;">
+        <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
+        </div>
+        <hr>
+        <div>
+          <div style="display: block; text-align: center;">
+          <div style="display: block; text-align: right;">
+           <b> 작성자 : </b> <b><%= content_list.get(i).getMember_id() %></b>
+           </div>
+           <p><%= content_list.get(i).getContent() %> </p>
           </div>
         </div>
-        <% } // for문 닫히는 %>
-							         <!-- Show more button -->
-							    <button id="more" onclick="더보기()">더 보기</button>
-        <a href="게시글-작성화면.html" class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-6">게시글 작성</a>
+        <div>
+        <hr>
+				<div>
+				<%
+				int con_id = content_list.get(i).getContent_id();
+				
+				for (int j = 0; j < comment_list.size() - 2; j++) {
+				    if (comment_list.get(j) != null) { // null 체크 추가
+				        int co_id = Integer.parseInt(comment_list.get(j).getContent_id());
+				        if (con_id == co_id) { %>
+				            <b><%= comment_list.get(j).getComment_id() %> : <%= comment_list.get(j).getP_comment() %> </b>
+				            <hr>
+				        <% } 
+				    }
+				}%> 
+				<div>
+				
+						<form action="commentDetail" method="post" style="text-align: center;">
+					    <div style="display: inline-block; text-align: left;">
+					        <input type="hidden" name="content_id" value="<%= content_list.get(i).getContent_id() %>"><br>
+					        <input type="hidden" name="member_id" value="<%= user_id %>"><br>
+					        <input type="text" name="comment_id"><br>
+					            <input type="text" name="p_comment"><br>
+					        <div style="text-align: center;">
+					            <input type="submit" value="댓글작성"><br>
+					        </div>
+					    </div>
+					</form>
+				</div>
+            <hr>
+            <%}else if(3<= i && i <= 5 ){ %>
+                <div class="hidden" style="display: none;">
+                      <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
+        <div style="text-align: center;">
+        <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
+        </div>
+         <div>
+          <div style="display: block; text-align: center;">
+          <div style="display: block; text-align: right;">
+           <b> 작성자 : </b> <b><%= content_list.get(i).getMember_id() %></b>
+           </div>
+           <p><%= content_list.get(i).getContent() %> </p>
+          </div>
+        </div>
+               <hr>
+               </div>
+                
+                
+                
+            <%}else if(6<= i && i <= 8 ){ %>
+            <div class="hidden" style="display: none;">
+            <b>제목</b>
+            <b id="title_<%= i %>"><%= content_list.get(i).getTitle() %></b>
+            <b>작성자</b>
+            <br>
+            <b id="member_id_<%= i %>"><%= content_list.get(i).getMember_id() %></b>
+            <b>다운로드</b>
+            <a href="" download>다운로드</a>
+            <br>
+            <b>내용</b>
+            <br>
+            <b id="content_<%= i %>"><%= content_list.get(i).getContent() %></b>
+            <br>
+            <img src="file/<%= content_list.get(i).getAttachment() %>" />
+            <br>
+            <b>테스트</b>
+            <b id="test_<%= i %>">123</b>
+            <hr>
+        </div><%}} %>
+
+				</div>
+        <a href="WriteMain.jsp" class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5" id = "g_bt">게시글 작성</a>
+         <button id="more" onclick="더보기()">더 보기</button>
       </div>
     </section>
+   
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-78d4"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">인공지능 융합서비스<br>개발자 과정(NCS) 15차<br>1차 프로젝트<br>SNS하고 싶조<br>김연재, 정유석, 정명훈, 최준성
