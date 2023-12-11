@@ -4,6 +4,7 @@ var user = 'test1';
 /* 방 ID */
 var room = 'room1';
 
+/* 서버 url */
 var url = 'ws://127.0.0.1:3000?user='+user+'&room='+room;
 var socket = new WebSocket(url);
 var stop = true;
