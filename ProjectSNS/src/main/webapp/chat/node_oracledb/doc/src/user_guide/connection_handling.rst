@@ -2038,7 +2038,7 @@ can use a curl command against the Azure Active Directory API such as::
     https://login.microsoftonline.com/[<TENANT_ID>]/oauth2/v2.0/token
     -d 'client_id = <APP_ID>'
     -d 'scope = <SCOPES>'
-    -d 'username = <USER_NAME>'
+    -d 'username = <user_id>'
     -d 'password = <PASSWORD>'
     -d 'grant_type = password'
     -d 'client_secret = <SECRET_KEY>'
@@ -3721,7 +3721,7 @@ connection strings, wallet locations, and wallet password (if required) in each
 .. code-block:: javascript
 
     connection = await oracledb.getConnection({
-        user: "user_name",
+        user: "user_id",
         password: userpw,
         connectString: "cjdb1_high",
         configDir: "/opt/OracleCloud/MYDB",

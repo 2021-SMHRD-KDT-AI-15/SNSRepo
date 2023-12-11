@@ -1,6 +1,7 @@
 package sns.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,29 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sns.model.GroupChangeDTO;
-import sns.model.GroupDAO;
+import sns.model.FriendDAO;
+import sns.model.FriendDTO;
 
-@WebServlet("/GroupInfoChangeService")
-public class GroupInfoChangeService extends HttpServlet {
+@WebServlet("/FriendListService")
+public class FriendListService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
 		HttpSession session = request.getSession();
 		
-		String group_id = (String) session.getAttribute("group_id");
+		session.setAttribute("user_id", "ID1");
+		String user_id = (String) session.getAttribute("user_id");
 		
-		String new_input = request.getParameter("new_input");
+		FriendDAO dao = new FriendDAO();
 		
-		GroupDAO dao = new GroupDAO();
+		ArrayList<FriendDTO> friend_list = new ArrayList<>(); 
 		
-		GroupChangeDTO dto = new GroupChangeDTO(group_id, new_input);
+		friend_list = dao.friend_list(user_id);
 		
-		dao.group_info_change(dto);
-		
-		request.setAttribute("group_id", group_id);
-		RequestDispatcher rd = request.getRequestDispatcher("GroupMainService");
+		request.setAttribute("friend_list", friend_list);
+		RequestDispatcher rd = request.getRequestDispatcher("FriendList.jsp");
 		rd.forward(request, response);
 	}
 

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import sns.model.GroupDAO;
 import sns.model.GroupDTO;
-import sns.model.MemberDTO;
+import sns.model.GroupMemberDTO;
 
 @WebServlet("/GroupMainService")
 public class GroupMainService extends HttpServlet {
@@ -32,7 +32,7 @@ public class GroupMainService extends HttpServlet {
 		GroupDAO dao = new GroupDAO();
 
 		GroupDTO group_main = dao.get_group_info(group_id);
-		ArrayList<MemberDTO> group_member_list = dao.get_group_member_list(group_id);
+		ArrayList<GroupMemberDTO> group_member_list = dao.get_group_member_list(group_id);
 		
 		
 		if(group_main.getMember_id().equals(user_id)) {

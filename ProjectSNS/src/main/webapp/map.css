@@ -1,22 +1,21 @@
 .u-section-1 .u-sheet-1 {
-  min-height: 873px;
+  min-height: 100vh;
 }
 
 .u-section-1 .u-text-1 {
   font-family: Amarillo;
-  margin: 32px auto 0;
+  margin: 16px auto 0;
 }
 
 .u-section-1 .u-group-1 {
-  min-height: 345px;
+  min-height: 838px;
   margin-top: 32px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
   height: auto;
 }
 
 .u-section-1 .u-container-layout-1 {
   padding: 30px;
-  height: 500px;
 }
 
 .u-section-1 .u-text-2 {

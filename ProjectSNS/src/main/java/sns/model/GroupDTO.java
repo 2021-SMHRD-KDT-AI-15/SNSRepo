@@ -29,6 +29,14 @@ public class GroupDTO {
 		this.member_id = member_id;
 	}
 
+	public GroupDTO(String group_id, String group_info, int rating_group, String img, String member_id) {
+		this.group_id = group_id;
+		this.group_info = group_info;
+		this.rating_group = rating_group;
+		this.img = img;
+		this.member_id = member_id;
+	}
+
 	public GroupDTO(String group_id, String group_info, int rating_group, int mmr, String img, String member_id) {
 		this.group_id = group_id;
 		this.group_info = group_info;
@@ -38,7 +46,10 @@ public class GroupDTO {
 		this.member_id = member_id;
 	}
 
-	
+	public GroupDTO() {
+		super();
+	}
+
 	
 	
 	

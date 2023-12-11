@@ -15,14 +15,14 @@
 		where group_id in (select group_id from group_list where member_id = #{user_id})
 	</select>
 
-	<select id="get_group_info" resultType="sns.model.MatchDTO">
-		select group_id, group_info, rating_group, mmr, img, member_id from p_group
+	<select id="get_group_info" resultType="sns.model.GroupDTO">
+		select group_id, group_info, rating_group, img, member_id from p_group
 		where group_id = #{group_id}
 	</select> 
 	
-	<select id="get_group_member_list" resultType="sns.model.MemberDTO">
-		select Member_id, name, mail, birth, img, dis, gender, location, rating_person from basic_info
-		where member_id = (select member_id from group_list where group_id = #{group_id})
+	<select id="get_group_member_list" resultType="sns.model.GroupMemberDTO">
+		select member_id, name, mail, birth, img, dis, gender, location, rating_person from basic_info
+		where member_id in (select member_id from group_list where group_id = #{group_id})
 	</select>
 
 	<delete id="group_member_kick" parameterType="sns.model.GroupDTO">

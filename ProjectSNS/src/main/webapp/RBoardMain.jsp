@@ -133,11 +133,16 @@ ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 
             <h1 class="u-custom-font u-text u-text-default u-text-1">
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="게시글-나오는곳.html">Gather up!!</a>
             </h1>
-            <p class="u-text u-text-default u-text-2">버튼 아이콘으로 대체할 예정</p>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">Button</a>
+       		<% String user_id = (String) session.getAttribute("user_id"); %>
+					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					<a href="BoardDetail"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
+					<a href="FriendListService"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
+					<a href="MatchListService"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
+					<a href="map.html"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
           </div>
           
           
@@ -183,6 +188,7 @@ ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 
 		<%for (int i = 0; i <= 7; i++) { %>
             <!-- 각 게시물 내용 표시 -->
             <% if (i < 3) { %>
+            <div>
         <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
         <div style="text-align: center;">
         <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
@@ -225,14 +231,20 @@ ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 
 					    </div>
 					</form>
 				</div>
+				</div>
+				</div>
+				</div>
+				
             <hr>
             <%}else if(3<= i && i <= 5 ){ %>
                 <div class="hidden" style="display: none;">
-                      <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
+             <div>
+        <b style="display: block; text-align: center;" ><%= content_list.get(i).getTitle() %> </b><br>
         <div style="text-align: center;">
         <img src="images/<%= content_list.get(i).getAttachment() %>" style="display: block; margin: 0 auto;">
         </div>
-         <div>
+        <hr>
+        <div>
           <div style="display: block; text-align: center;">
           <div style="display: block; text-align: right;">
            <b> 작성자 : </b> <b><%= content_list.get(i).getMember_id() %></b>
@@ -240,8 +252,9 @@ ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 
            <p><%= content_list.get(i).getContent() %> </p>
           </div>
         </div>
-               <hr>
-               </div>
+        </div>
+        </div>
+        <hr>
                 
                 
                 
@@ -269,7 +282,6 @@ ul.menu li { list-style:none;  position:relative; float:left; width:calc(100%/3 
 				</div>
         <a href="WriteMain.jsp" class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5" id = "g_bt">게시글 작성</a>
          <button id="more" onclick="더보기()">더 보기</button>
-      </div>
     </section>
    
     

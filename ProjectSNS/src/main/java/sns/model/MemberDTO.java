@@ -28,6 +28,7 @@ public class MemberDTO {
 		this.rating_person = rating_person;
 	}
 	
+
 	public MemberDTO(String Member_id, String name, String mail, String birth, String img, String dis, String gender,
 			String location, String rating_person) {
 		this.Member_id = Member_id;

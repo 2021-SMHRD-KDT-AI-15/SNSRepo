@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="sns.model.MatchDTO" isELIgnored="false"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,11 +72,16 @@
             <h1 class="u-custom-font u-text u-text-default u-text-1">
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="게시글-나오는곳.html">Gather up!!</a>
             </h1>
-            <p class="u-text u-text-default u-text-2">버튼 아이콘으로 대체할 예정</p>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">Button</a>
-            <a href="https://nicepage.com/c/tiles-website-templates" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">Button</a>
+            <% String user_id = (String) session.getAttribute("user_id"); %>
+					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					<a href="BoardDetail"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
+					<a href="FriendListService"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
+					<a href="MatchListService"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
+					<a href="map.html"
+						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
           </div>
         </div>
       </div></header>
@@ -91,11 +96,11 @@
                 <div class="u-form-checkbox-group-wrapper">
                   <div class="u-input-row">
                     <input id="field-f564" type="checkbox" name="gender" value="남" class="u-field-input" data-calc="">
-                    <label class="u-field-label" for="field-f564">남자</label>
+                    <label class="u-field-label" for="field-f564">남성</label>
                   </div>
                   <div class="u-input-row">
                     <input id="field-f6eb" type="checkbox" name="gender" value="여" class="u-field-input" data-calc="">
-                    <label class="u-field-label" for="field-f6eb">여자</label>
+                    <label class="u-field-label" for="field-f6eb">여성</label>
                   </div>
                 </div>
               </div>
