@@ -1,24 +1,55 @@
 /* 사용자 ID */
-var user = Date();
+var user = 'test1';
 
 /* 방 ID */
-var room = '1';
+var room = 'room1';
 
 var url = 'ws://127.0.0.1:3000?user='+user+'&room='+room;
 var socket = new WebSocket(url);
+var stop = true;
 
 socket.onopen =function () {
 	console.log('connection ok');
+	socket.send('requestChatHistory');
 };
 socket.onclose =function () {
 	console.log('connection fail');
 };
 socket.onmessage = function (response) {
 	var msg = JSON.parse(response.data);
-	makeMsg(msg);
-};
+	// Check for the type of message received
+    if (msg.type === 'beforList' && stop) {
+        // Display chat history
+        msg.chatHistory.forEach(function (historyMsg) {
+            displayChatHistory(historyMsg);
+        });
 
-var stop = true;
+        // Display users
+        msg.users.forEach(function (beforUsr) {
+            var usr = $('<div/>').attr({ id: beforUsr, class: 'members' }).text(beforUsr);
+            $('#users').append(usr);
+        });
+
+        stop = false;
+    } else {
+        makeMsg(msg);
+    }
+}
+function displayChatHistory(historyMsg) {
+    var cls = 'friendsMsg';
+    if (historyMsg.fromUser === user) {
+        cls = 'myMsg';
+    }
+    var child = $('<div/>').attr('class', cls).append(
+        $('<span/>').text(historyMsg.fromUser),
+        $('<small/>').text(' (' + historyMsg.timestamp + ') '),
+        $('<span/>').text(' : ' + historyMsg.param)
+    );
+    $('#console-container').append(child);
+    $('#console-container').animate({
+        scrollTop: $('#console-container').get(0).scrollHeight
+    }, 10);
+}
 
 //들어온 메시지 표시 함수
 function makeMsg(msg){

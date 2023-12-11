@@ -20,3 +20,6 @@ git submodule update
 
 5.
 npm install '프로젝트 경로'/node-oracledb
+
+6.
+npm install oracledb
