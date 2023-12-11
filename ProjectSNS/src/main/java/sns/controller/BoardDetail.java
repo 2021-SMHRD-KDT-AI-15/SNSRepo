@@ -68,7 +68,7 @@ public class BoardDetail extends HttpServlet {
 	
 	request.setAttribute("result", b_list);
 	request.setAttribute("c_result", b_list2);
-	RequestDispatcher rd = request.getRequestDispatcher("BoardMain.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("RBoardMain.jsp");
 	rd.forward(request, response);
 	
 	

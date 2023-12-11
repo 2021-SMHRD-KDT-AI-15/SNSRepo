@@ -4,8 +4,8 @@
 
 
 	<insert id="join" parameterType="sns.model.MemberDTO">
-		insert into basic_info 
-		values(#{Member_id}, #{pw}, #{name}, #{mail}, #{birth}, null, #{dis}, #{gender}, #{location}, #{rating_person})
+		insert into basic_info(member_id, pw, name, mail, birth, img, dis, gender, rating_person, location) 
+		values(#{Member_id}, #{pw}, #{name}, #{mail}, #{birth}, null, #{dis}, #{gender}, 50, #{location} )
 	</insert>
 
 	<select id="login" parameterType="sns.model.MemberDTO"

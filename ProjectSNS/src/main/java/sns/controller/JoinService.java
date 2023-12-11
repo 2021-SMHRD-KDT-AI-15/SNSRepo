@@ -18,6 +18,7 @@ public class JoinService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("ㅎㅇ");
 		request.setCharacterEncoding("UTF-8");
 
 		String Member_id = request.getParameter("Member_id");
@@ -33,13 +34,17 @@ public class JoinService extends HttpServlet {
 
 		
 		MemberDAO dao = new MemberDAO();
-		MemberDTO dto = new MemberDTO(Member_id, pw, name, mail, birth, img, dis, gender, location, rating_person);
+		MemberDTO dto = new MemberDTO(Member_id, pw, name, mail, birth, img, dis, gender, rating_person, location);
 		int result = dao.join(dto);
 		
+		System.out.println("result : " +  result);
+		
 		if(result > 0) {
-			response.sendRedirect("see.html");
+			
+			
+			response.sendRedirect("Login.jsp");
 		}else {
-			response.sendRedirect("fail.html");
+			response.sendRedirect("Login.jsp");
 		}
 
 	}
