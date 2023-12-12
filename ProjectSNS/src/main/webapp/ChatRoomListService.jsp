@@ -147,7 +147,8 @@
     </section>
     <section class="u-clearfix u-section-2" id="sec-3c82">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <iframe src="./chat/static/index.html" id ="chat_room"></iframe>
+        <% session.setAttribute("user_id", user_id);%>
+        <iframe src="./chat/static/index.jsp" id ="chat_room"></iframe>
               <br>
             </p>
           </div>

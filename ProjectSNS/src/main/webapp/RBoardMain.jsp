@@ -309,7 +309,7 @@ ul.menu li {
 
 
 
-	<a href="ChatRoomListService"
+	<a href="ChatRoomListService.jsp"
 		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
 		id="chat_bt" style="position: fixed; right: 10px; bottom: 70px;"><img
 		src="images/chat.png" height="30px"></a>
