@@ -1,6 +1,9 @@
 /* 사용자 ID */
-var user = 'test1';
-
+// var user = 'test1';
+// var user = '<%= Session["user_id"]%>';
+//  var user = sessionData.user_id;
+// console.log("User ID: " + sessionData.user_id);
+// var user = document.getElementById('user_id');
 /* 방 ID */
 var room = 'room1';
 
