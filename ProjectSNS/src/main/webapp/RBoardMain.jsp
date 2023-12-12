@@ -289,7 +289,7 @@ ul.menu li {
 						</c:if>
 					</c:forEach>
 
-					<form action="commentDetail" method="post"
+					<form actio	n="commentDetail" method="post"
 						style="text-align: center;">
 						<div style="display: inline-block; text-align: left;">
 							<input type="hidden" name="content_id"
