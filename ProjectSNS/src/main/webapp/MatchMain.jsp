@@ -72,15 +72,27 @@
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="BoardDetail">Gather up!!</a>
             </h1>
             <% String user_id = (String) session.getAttribute("user_id"); %>
-					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					<p class="u-text u-text-default u-text-2">
+						<c:if test="${!empty user_id}">
+							<a href="ProfileService"><%=user_id%>님 환영합니다.</a> &nbsp; <a
+								href="LogoutService">로그아웃</a>
+						</c:if>
+						<c:if test="${empty user_id}">
+							<a href="Login.jsp">로그인</a>
+						</c:if>
+					</p>
 					<a href="BoardDetail"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2"><img
+						src="images/home.png" style="width:25px"></a> 
 					<a href="FriendListService"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3"><img
+						src="images/group.png" style="width:25px"></a> 
 					<a href="MatchMain.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4"><img
+						src="images/matching.png" style="width:25px"></a> 
 					<a href="map.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5"><img
+						src="images/map.png" style="width:25px"></a>
           </div>
         </div>
       </div></header>
@@ -141,14 +153,9 @@
                   </div>
                 </div>
               </div>
-              <div class="u-align-right u-form-group u-form-submit">
-                <a href="#" class="u-border-none u-btn u-btn-1 u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius">설정</a>
-                <input type="submit" value="submit" class="u-form-control-hidden">
-              </div>
-              <input type="hidden" value="" name="recaptchaResponse">
-              <input type="hidden" name="formServices" value="1a963035-d312-954c-783a-9471c4f282dd">
+              
             </div>
-            <input type="submit">
+            <input type="submit" class="u-border-none u-btn u-btn-1 u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius">
           </div>
         </div>
       </div>

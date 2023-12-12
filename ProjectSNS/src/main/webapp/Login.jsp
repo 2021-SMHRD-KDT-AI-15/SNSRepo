@@ -76,15 +76,19 @@
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-black u-btn-1" href="BoardDetail">Gather up!!</a>
             </h1>
             <% String user_id = (String) session.getAttribute("user_id"); %>
-					<p class="u-text u-text-default u-text-2"><a href="ProfileService"><%=user_id %>님 환영합니다.</a></p>
+					
 					<a href="BoardDetail"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2"><img
+						src="images/home.png" style="width:25px"></a> 
 					<a href="FriendListService"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3"><img
+						src="images/group.png" style="width:25px"></a> 
 					<a href="MatchMain.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4"><img
+						src="images/matching.png" style="width:25px"></a> 
 					<a href="map.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5"><img
+						src="images/map.png" style="width:25px"></a>
           </div>
           
           

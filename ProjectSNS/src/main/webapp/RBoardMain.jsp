@@ -239,13 +239,17 @@ ul.menu li {
 						</c:if>
 					</p>
 					<a href="BoardDetail"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">메인</a>
-					<a href="FriendListService"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3">친구/그룹</a>
-					<a href="MatchMain.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4">매칭</a>
-					<a href="map.jsp"
-						class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5">지도</a>
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2"><img
+						src="images/home.png" style="width: 25px"></a> <a
+						href="FriendListService"
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-3"><img
+						src="images/group.png" style="width: 25px"></a> <a
+						href="MatchMain.jsp"
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-4"><img
+						src="images/matching.png" style="width: 25px"></a> <a
+						href="map.jsp"
+						class=" u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-5"><img
+						src="images/map.png" style="width: 25px"></a>
 				</div>
 
 
@@ -289,11 +293,11 @@ ul.menu li {
 						style="text-align: center;">
 						<div style="display: inline-block; text-align: left;">
 							<input type="hidden" name="content_id"
-								value="${result.content_id}"><br>
-							<input type="hidden" name="member_id" value="<%=user_id%>"><br>
-							<input type="text" name="p_comment" size=75>
-								<input type="submit" value="작성"><br>
-							
+								value="${result.content_id}"><br> <input
+								type="hidden" name="member_id" value="<%=user_id%>"><br>
+							<input type="text" name="p_comment" size=75> <input
+								type="submit" value="작성"><br>
+
 						</div>
 					</form>
 				</div>
@@ -307,7 +311,8 @@ ul.menu li {
 
 	<a href="ChatRoomListService"
 		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
-		id="chat_bt" style="position: fixed; right: 10px; bottom: 70px;">채팅</a>
+		id="chat_bt" style="position: fixed; right: 10px; bottom: 70px;"><img
+		src="images/chat.png" height="30px"></a>
 
 	<a href="WriteMain.jsp"
 		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
