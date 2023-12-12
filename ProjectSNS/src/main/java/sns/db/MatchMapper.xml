@@ -61,15 +61,15 @@
 			and group_id in (select req_group_id from request where gtg is not null)
 	</select>
 	
-	<insert id="new_group_1" parameterType="sns.model.MatchDTO">
+	<insert id="new_random_group_1" parameterType="sns.model.MatchDTO">
 		insert into p_group(group_id, rating_group, member_id) values(new_group_id.nextval, 50, #{req_id})
 	</insert>
 	 
-	<insert id="new_group_2" parameterType="sns.model.MatchDTO">
+	<insert id="new_random_group_2" parameterType="sns.model.MatchDTO">
 		insert into group_list values(to_char(new_group_id.currval), #{id});
 	</insert>
 	
-	<insert id="new_group_3" parameterType="sns.model.MatchDTO">
+	<insert id="new_random_group_3" parameterType="sns.model.MatchDTO">
 		insert into group_list values(to_char(new_group_id.currval), #{req_id});
 	</insert>
 	
