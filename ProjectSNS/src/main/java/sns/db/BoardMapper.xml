@@ -3,12 +3,9 @@
 <mapper namespace="sns.db.BoardMapper">
 
 
-
-	<!-- 게시판에 내용을 추가하는 sql 문장 -->
 	<insert id="upload" parameterType="sns.model.BoardDTO">
 		insert into content values(#{member_id},null, num_board.nextval,#{title},#{content},sysdate, #{attachment},0 )
 	</insert>
-
 
 	<select id="detail" resultType = "sns.model.BoardDTO">
 		select * from content where content_id=#{content_id}
@@ -20,6 +17,6 @@
 	
 	<select id="count" resultType="int">
     SELECT COUNT(*) FROM content
-</select>
+	</select>
 	
 </mapper>

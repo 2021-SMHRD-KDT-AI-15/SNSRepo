@@ -276,7 +276,7 @@ ul.menu li {
 				<div>
 					<div style="display: block; text-align: center;">
 						<div style="display: block; text-align: right;">
-							<b> 작성자 : </b> <b>${result.member_id}</b>
+							<b>${result.member_id}</b>
 						</div>
 						<p>${result.content}</p>
 					</div>
@@ -285,11 +285,11 @@ ul.menu li {
 					<hr style="border-top: 1px dashed;">
 					<c:forEach var="c_result" items="${c_result}">
 						<c:if test="${c_result.content_id eq result.content_id}">
-							<p>${c_result.p_comment}</p>
+							<b>${c_result.member_id}</b> <b>${c_result.p_comment}</b><br>
 						</c:if>
 					</c:forEach>
 
-					<form action="commentDetail" method="post"
+					<form actio	n="commentDetail" method="post"
 						style="text-align: center;">
 						<div style="display: inline-block; text-align: left;">
 							<input type="hidden" name="content_id"

@@ -7,7 +7,11 @@
 	</insert>
 	
 	<insert id="new_group_2" parameterType="sns.model.GroupDTO">
-		insert into interest(group_id, #{interest}) values(#{group_id}, #{mmr})
+		insert into interest(group_id, ${interest}) values(#{group_id}, #{mmr})
+	</insert>
+	
+	<insert id="new_group_3" parameterType="sns.model.GroupDTO">
+		insert into group_list(group_id, member_id) values(#{group_id}, #{member_id})
 	</insert>
 
 	<select id="my_group_list" resultType="sns.model.MatchDTO">

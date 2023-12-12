@@ -26,7 +26,7 @@ public class GroupMakingService extends HttpServlet {
 		String group_id = request.getParameter("group_id");
 		String group_info = request.getParameter("group_info");
 		String interest = request.getParameter("interest");
-		int mmr = Integer.parseInt(request.getParameter("mmr"));
+		int mmr = 50;
 		
 		GroupDAO dao = new GroupDAO();
 		
@@ -36,10 +36,10 @@ public class GroupMakingService extends HttpServlet {
 		
 		if(result > 0) {
 			request.setAttribute("group_id", group_id);
-			RequestDispatcher rd = request.getRequestDispatcher("GroupMainService.java");
+			RequestDispatcher rd = request.getRequestDispatcher("GroupMainService");
 			rd.forward(request, response);
 		}else { // 그룹 만들기 실패시
-			response.sendRedirect("GroupListService.java");
+			response.sendRedirect("GroupListService");
 		}
 		
 		

@@ -13,6 +13,10 @@
 		select * from basic_info where Member_id=#{Member_id} and pw=#{pw}
 	</select>
 
+	<select id="find_name">
+		select name from basic_info where member_id=#{member_id}
+	</select>
+
 	<select id="friend_list" resultType="sns.model.FriendDTO">
 		select member_id, name, mail, birth, img, dis, gender, location, rating_person from basic_info
 		where member_id in (select friend_id from friend where member_id = #{user_id})

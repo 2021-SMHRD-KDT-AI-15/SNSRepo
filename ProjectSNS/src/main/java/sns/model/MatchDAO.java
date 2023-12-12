@@ -117,9 +117,9 @@ public class MatchDAO {
 	public void new_group(MatchDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("new_group_1", dto);
-		sqlSession.insert("new_group_2", dto);
-		sqlSession.insert("new_group_3", dto);
+		sqlSession.insert("new_random_group_1", dto);
+		sqlSession.insert("new_random_group_2", dto);
+		sqlSession.insert("new_random_group_3", dto);
 		
 		sqlSession.close();
 	}

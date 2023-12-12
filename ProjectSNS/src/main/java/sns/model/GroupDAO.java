@@ -19,6 +19,7 @@ public class GroupDAO {
 		
 		int cnt = sqlSession.insert("new_group_1", dto);
 		sqlSession.insert("new_group_2", dto);
+		sqlSession.insert("new_group_3", dto);
 		
 		sqlSession.close();
 		

@@ -148,7 +148,7 @@
                 <div class="u-form-group u-form-group-8 u-form-select">
                   <label for="select-9ff8" class="u-custom-font u-label u-label-8">관심사</label>
                   <div class="u-form-select-wrapper">
-                    <select id="select-9ff8" name="select" class="u-input u-input-rectangle" size="5">
+                    <select id="select-9ff8" name="interest" class="u-input u-input-rectangle" size="5">
                       <option value="soccer" data-calc="">축구</option>
                       <option value="basketball" data-calc="">농구</option>
                       <option value="baseball" data-calc="">야구</option>
@@ -160,14 +160,9 @@
                 </div>
                 <div class="u-form-group u-form-group-9 u-form-textarea">
                   <label for="textarea-41f3" class="u-custom-font u-label u-label-9">그룹 소개</label>
-                  <textarea rows="4" cols="50" id="textarea-41f3" name="textarea" class="u-input u-input-rectangle" required=""></textarea>
+                  <textarea rows="4" cols="50" id="textarea-41f3" name="group_info" class="u-input u-input-rectangle" required=""></textarea>
                 </div>
-                <div class="u-align-left u-form-group u-form-submit">
-                  <a href="#" class="u-border-none u-btn u-btn-1 u-btn-submit u-button-style u-custom-color-2">그룹 만들기</a>
-                  <input type="submit" value="submit" class="u-form-control-hidden">
-                </div>
-                <input type="hidden" value="" name="recaptchaResponse">
-                <input type="hidden" name="formServices" value="1a963035-d312-954c-783a-9471c4f282dd">
+                <input type="submit" value="만들기" class="u-border-none u-btn u-btn-1 u-btn-submit u-button-style u-custom-color-2">
               </form>
             </div>
           </div>
