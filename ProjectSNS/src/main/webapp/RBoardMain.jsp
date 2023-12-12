@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 <head>
@@ -259,133 +260,59 @@ ul.menu li {
 		id="sec-1c29">
 		<div class="u-clearfix u-sheet u-sheet-1">
 
-			<hr>
-			<%
-			ArrayList<BoardDTO> content_list = (ArrayList<BoardDTO>) request.getAttribute("result");
-			ArrayList<commentDTO> comment_list = (ArrayList<commentDTO>) request.getAttribute("c_result");
-			%>
 
-			<!-- 각 게시물 내용 표시  7값 나중에 숫자 따로 줘서 바꿔줘야해!!-->
-			<%
-			for (int i = 0; i <= 7; i++) {
-			%>
-			<!-- 각 게시물 내용 표시 -->
-			<%
-			if (i < 3) {
-			%>
-			<div>
-				<b style="display: block; text-align: center;"><%=content_list.get(i).getTitle()%>
-				</b><br>
+			<c:forEach var="result" items="${result}">
+				<b style="display: block; text-align: center;">${result.title}</b>
+				<br>
 				<div style="text-align: center;">
-					<img src="images/<%=content_list.get(i).getAttachment()%>"
+					<img src="images/${result.attachment}"
 						style="display: block; margin: 0 auto; width: 100%;">
 				</div>
 				<hr>
 				<div>
 					<div style="display: block; text-align: center;">
 						<div style="display: block; text-align: right;">
-							<b> 작성자 : </b> <b><%=content_list.get(i).getMember_id()%></b>
+							<b> 작성자 : </b> <b>${result.member_id}</b>
 						</div>
-						<p><%=content_list.get(i).getContent()%>
-						</p>
+						<p>${result.content}</p>
 					</div>
 				</div>
 				<div>
-					<hr>
-					<div>
-						<%
-						int con_id = content_list.get(i).getContent_id();
+					<hr style="border-top: 1px dashed;">
+					<c:forEach var="c_result" items="${c_result}">
+						<c:if test="${c_result.content_id eq result.content_id}">
+							<p>${c_result.p_comment}</p>
+						</c:if>
+					</c:forEach>
 
-						for (int j = 0; j < comment_list.size() - 2; j++) {
-							if (comment_list.get(j) != null) { // null 체크 추가
-								int co_id = Integer.parseInt(comment_list.get(j).getContent_id());
-								if (con_id == co_id) {
-						%>
-						<b><%=comment_list.get(j).getComment_id()%> : <%=comment_list.get(j).getP_comment()%>
-						</b>
-						<hr>
-						<%
-						}
-						}
-						}
-						%>
-						<div>
-
-							<form action="commentDetail" method="post"
-								style="text-align: center;">
-								<div style="display: inline-block; text-align: left;">
-									<input type="hidden" name="content_id"
-										value="<%=content_list.get(i).getContent_id()%>"><br>
-									<input type="hidden" name="member_id" value="<%=user_id%>"><br>
-									<input type="text" name="p_comment"><br>
-									<div style="text-align: center;">
-										<input type="submit" value="댓글작성"><br>
-									</div>
-								</div>
-							</form>
+					<form action="commentDetail" method="post"
+						style="text-align: center;">
+						<div style="display: inline-block; text-align: left;">
+							<input type="hidden" name="content_id"
+								value="${result.content_id}"><br>
+							<input type="hidden" name="member_id" value="<%=user_id%>"><br>
+							<input type="text" name="p_comment" size=75>
+								<input type="submit" value="작성"><br>
+							
 						</div>
-					</div>
+					</form>
 				</div>
-			</div>
-
-			<hr>
-			<%
-			} else if (3 <= i && i <= 5) {
-			%>
-			<div class="hidden" style="display: none;">
-				<div>
-					<b style="display: block; text-align: center;"><%=content_list.get(i).getTitle()%>
-					</b><br>
-					<div style="text-align: center;">
-						<img src="images/<%=content_list.get(i).getAttachment()%>"
-							style="display: block; margin: 0 auto;">
-					</div>
-					<hr>
-					<div>
-						<div style="display: block; text-align: center;">
-							<div style="display: block; text-align: right;">
-								<b> 작성자 : </b> <b><%=content_list.get(i).getMember_id()%></b>
-							</div>
-							<p><%=content_list.get(i).getContent()%>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr>
-
-
-
-			<%
-			} else if (6 <= i && i <= 8) {
-			%>
-			<div class="hidden" style="display: none;">
-				<b>제목</b> <b id="title_<%=i%>"><%=content_list.get(i).getTitle()%></b>
-				<b>작성자</b> <br> <b id="member_id_<%=i%>"><%=content_list.get(i).getMember_id()%></b>
-				<b>다운로드</b> <a href="" download>다운로드</a> <br> <b>내용</b> <br>
-				<b id="content_<%=i%>"><%=content_list.get(i).getContent()%></b> <br>
-				<img src="file/<%=content_list.get(i).getAttachment()%>" /> <br>
-				<b>테스트</b> <b id="test_<%=i%>">123</b>
-				<hr>
-			</div>
-			<%
-			}
-			}
-			%>
-
-			<button id="more"
-				class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
-				onclick="더보기()">더 보기</button>
+				<hr style="border-top: 3px double;">
+			</c:forEach>
+		</div>
 	</section>
-	
+
+
+
+
+	<a href="ChatRoomListService"
+		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
+		id="chat_bt" style="position: fixed; right: 10px; bottom: 70px;">채팅</a>
+
 	<a href="WriteMain.jsp"
 		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
 		id="g_bt" style="right: 10px;">게시글 작성</a>
-		
-	<a href="ChatListService"
-		class="u-border-2 u-border-custom-color-2 u-btn u-button-style u-custom-item u-hover-custom-color-2 u-none u-text-black u-text-hover-white u-btn-5"
-		id="chat_bt" style="position: fixed; right: 10px; bottom: 70px;">채팅</a> 
-				
+
 
 
 

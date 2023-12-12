@@ -44,25 +44,10 @@ public class WriteService extends HttpServlet {
 	String like_count = multi.getParameter("like_count");
 	String attachment = URLEncoder.encode(multi.getFilesystemName("attachment"), "utf-8");
 	
-	
-	
-	System.out.println("김연재" + "+" +title+ "+" +content+ "+" +like_count+ "+" +attachment);
+	System.out.println(member_id + "+" +title+ "+" +content+ "+" +like_count+ "+" +attachment);
 	
 	BoardDAO dao = new BoardDAO();
-	BoardDTO dto = new BoardDTO("김연재", title, content, attachment, like_count);
-	
-	
-//	이걸로 다시 바꿔야함
-//	String member_id = (String) user_id;
-//	String title = multi.getParameter("title");
-//	String content = multi.getParameter("content");
-//	String like_count = multi.getParameter("like_count");
-//	String attachment = URLEncoder.encode(multi.getFilesystemName("attachment"), "utf-8");
-//	
-//	System.out.println(member_id + "+" +title+ "+" +content+ "+" +like_count+ "+" +attachment);
-//	
-//	BoardDAO dao = new BoardDAO();
-//	BoardDTO dto = new BoardDTO(member_id, title, content, attachment, like_count);
+	BoardDTO dto = new BoardDTO(member_id, title, content, attachment, like_count);
 	
 	
 	int cnt = dao.upload(dto);

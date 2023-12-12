@@ -23,6 +23,7 @@
     <mapper resource="sns/db/commentMapper.xml"/>
     <mapper resource="sns/db/GroupMapper.xml"/>
     <mapper resource="sns/db/ProfileMapper.xml"/>
+    <mapper resource="sns/db/ChatMapper.xml"/>
   </mappers>
 </configuration>
 

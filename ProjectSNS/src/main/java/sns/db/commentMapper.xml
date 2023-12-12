@@ -6,7 +6,9 @@
 	insert into comments values(#{content_id}, num_comment.nextval, #{member_id}, #{p_comment}, sysdate)
 	</insert>
 	
-	
+	<select id="c_list" resultType="sns.model.commentDTO">
+		select content_id, comment_id, member_id, p_comment from comments
+	</select>
 	
 	<select id="c_count" resultType="int">
     SELECT COUNT(*) FROM comments
