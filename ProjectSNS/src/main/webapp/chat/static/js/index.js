@@ -1,8 +1,10 @@
 /* 사용자 ID */
 var user = 'test1';
+// var user = '<%= Session["user_ID"]%>';
 
 /* 방 ID */
 var room = 'room1';
+// var room = '<%= Session["user_ID"]%>';
 
 /* 서버 url */
 var url = 'ws://127.0.0.1:3000?user='+user+'&room='+room;

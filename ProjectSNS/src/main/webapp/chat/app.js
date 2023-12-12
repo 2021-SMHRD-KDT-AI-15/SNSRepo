@@ -161,7 +161,7 @@ wsServer.on('request', async function(request) {
             console.log(err);
         });
     });
-});
+}); 
 
 //파라미터 확인용 함수
 function NUL(obj){
