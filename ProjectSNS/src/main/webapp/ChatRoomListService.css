@@ -499,5 +499,9 @@ overflow-y: scroll;
 }
 
 #chat_room{
-  width:100%; height : 400px;
+  width:100%; height : 400px;}
+
+.u-text-99{
+  margin-top: 100px;
+  margin-left: 70px;
 }

@@ -24,7 +24,7 @@
 <div id='users'> </div>
 <% String user_id = (String) session.getAttribute("user_id"); %>
 <p id="user_id" hidden><%= user_id%></p>
-
+<p id="other_id" hidden><% %></p>
 <!-- 인풋 박스 -->
 <p>
 <div>
@@ -67,7 +67,7 @@
 	/* 사용자 ID */
 var user = document.getElementById('user_id').innerHTML;
 /* 방 ID */
-var room = 'kyj8282';
+var room = 'room1';
 
 /* 서버 url */
 var url = 'ws://220.93.169.124:3000?user='+user+'&room='+room;

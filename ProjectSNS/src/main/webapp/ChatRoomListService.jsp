@@ -116,28 +116,28 @@
             <div class="u-border-2 u-border-grey-75 u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <img src="images/front-view-man-holding-vinyl-disk-his-face-music-store-mock-up_23-2148690557.jpg" alt="" class="u-image u-image-round u-preserve-proportions u-radius u-image-1" data-image-width="626" data-image-height="626">
-                <h2 class="u-text u-text-1">상태메세지 예시 1</h2>
-                <h5 class="u-custom-font u-font-pt-sans u-text u-text-2">메모 예시</h5>
-                <a href="https://nicepage.online" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-3">more</a>
-                <p class="u-text u-text-3">이름</p>
+                <h2 class="u-text u-text-1">저번주에 달렸더니 피곤하다...</h2>
+                <h5 class="u-custom-font u-font-pt-sans u-text u-text-2" id = "chat_id"><u>우리팀 팀장</u></h5>
+                <!-- <a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-3"></a> -->
+                <p class="u-text-99">kyj8282</p>
               </div>
             </div>
             <div class="u-border-2 u-border-grey-75 u-container-style u-list-item u-repeater-item u-list-item-2" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="">
               <div class="u-container-layout u-similar-container u-container-layout-2">
                 <img src="images/music-album-new-single-template_23-2148879485.jpg" alt="" class="u-image u-image-round u-preserve-proportions u-radius u-image-2" data-image-width="626" data-image-height="626">
-                <h2 class="u-text u-text-4">상태메시지 예시</h2>
-                <h5 class="u-custom-font u-font-pt-sans u-text u-text-5">메모 예시2</h5>
-                <a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-4">more</a>
-                <p class="u-text u-text-6">이름</p>
+                <h2 class="u-text u-text-4">언제나 최선을 다해</h2>
+                <h5 class="u-custom-font u-font-pt-sans u-text u-text-5" id = "chat_id"><u>우리팀 엘리트</u></h5>
+                <!-- <a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-4"></a> -->
+                <p class="u-text-99">cjs1577</p>
               </div>
             </div>
             <div class="u-border-2 u-border-grey-75 u-container-style u-list-item u-repeater-item u-list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="">
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <img src="images/square-music-cover-with-vintage-collage_23-2148913436.jpg" alt="" class="u-image u-image-round u-preserve-proportions u-radius u-image-3" data-image-width="626" data-image-height="626">
-                <h2 class="u-text u-text-7">상태메세지 예시&nbsp;</h2>
-                <h5 class="u-custom-font u-font-pt-sans u-text u-text-8">메모 예시</h5>
-                <a href="https://nicepage.best" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-5">more</a>
-                <p class="u-text u-text-9">이름</p>
+                <h2 class="u-text u-text-7">예시를 뭘로 하지...</h2>
+                <h5 class="u-custom-font u-font-pt-sans u-text u-text-8" id = "chat_id"><u>저번에 사탕주신 분</u></h5>
+                <!-- <a href="https://nicepage.best" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-5"></a> -->
+                <p class="u-text-99">jmh2929</p>
               </div>
             </div>
           </div>
@@ -148,15 +148,28 @@
     <section class="u-clearfix u-section-2" id="sec-3c82">
       <div class="u-clearfix u-sheet u-sheet-1">
         <% session.setAttribute("user_id", user_id);%>
-        <iframe src="./chat/static/index.jsp" id ="chat_room"></iframe>
+       
+        <iframe id ="chat_room"></iframe>
               <br>
             </p>
           </div>
         </div>
       </div>
     </section>
-    
-    
+    <style>
+      #myIframe {
+          display: none; /* Hide iframe initially */
+      }
+    </style>
+    <script>
+      document.getElementById('chat_id').addEventListener('click', function() {
+          // Show the iframe by changing its display property
+          document.getElementById('chat_room').style.display = 'block';
+  
+          // Set the src attribute to load the content
+          document.getElementById('chat_room').src="./chat/static/index.jsp";
+      });
+    </script>
     
     
     
