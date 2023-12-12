@@ -15,7 +15,7 @@ public class MemberDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		int cnt = sqlSession.insert("join", dto);
-		
+			
 		sqlSession.close();
 		
 		return cnt;

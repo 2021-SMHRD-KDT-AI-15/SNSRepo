@@ -25,14 +25,15 @@
 <!-- 인풋 박스 -->
 <p>
 <div>
-  <input type="text" placeholder="메세지를 입력하세요" id="chat" >
-  <input type="button" value='전송' id="clicker">
+  <input type="text" placeholder="메세지를 입력하세요" id="chat" onkeyup="nullexception()">
+  <input type="button" value='전송' id="clicker" disabled>
 </div><br><br>
 </body>
 </html>
 
-<!-- ENTER/CLICK 시 메세지 박스 초기화 -->
+
 <script type="application/javascript">
+	/* ENTER/CLICK 시 메세지 박스 초기화 */
 	$('#chat').keydown(function(event){
 		if(event.keyCode == 13){
 			var value = $(this).val();
@@ -50,4 +51,13 @@
 		$('#chat').val('');
 		}, 0)
 	});
+
+	/* 빈칸일때 전송 안되게 */
+	function nullexception() {
+	 if(document.getElementById("chat").value==="") { 
+            document.getElementById('clicker').disabled = true; 
+        } else { 
+            document.getElementById('clicker').disabled = false;
+        }
+    }
 </script>

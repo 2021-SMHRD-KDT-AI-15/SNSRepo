@@ -1,4 +1,4 @@
-//포트
+// 서버 포트
 const port = 3000;
 
 // /* 오라클db 연결 */
@@ -7,11 +7,11 @@ oracledb.initOracleClient({libDir: 'C:\\instantclient_21_12'});
 
 // /* 오라클 환경설정 */
 const dbConfig = {
-  user: 'service',
-  password: '12345',
-  connectString: 'localhost:1521/xe',
+  user: 'cgi_21K_AI15_hacksim_2',
+  password: 'smhrd2',
+  connectString: 'project-db-cgi.smhrd.com:1524/xe',
   externalAuth  : false,
-  };
+  };    
 
 /* 설치한 express 모듈 불러오기 */
 const express = require('express')
@@ -54,7 +54,7 @@ async function saveChatMessage(room, chatContent, chatDate, attachment, memberId
         console.log('OracleDB connected');
         
         const result = await connection.execute(
-            `INSERT INTO CHAT_CONTENT (CHAT_ID, CHAT_CONTENT, CHAT_DATE, ATTACHMENT, MEMBER_ID) VALUES (:room, :chatContent, :chatDate, :attachment, :memberId)`,
+            `INSERT INTO CHAT_CONTENT (CHAT_ID, CONTENT, COMMENT_TIME, ATTACHMENT, MEMBER_ID) VALUES (:room, :chatContent, :chatDate, :attachment, :memberId)`,
             [room, chatContent, chatDate, attachment, memberId]
         );
         await connection.commit();
@@ -102,7 +102,7 @@ async function getChatHistory(room) {
         console.log('OracleDB connected');
 
         const result = await connection.execute(
-            `SELECT MEMBER_ID, CHAT_DATE, CHAT_CONTENT FROM CHAT_CONTENT WHERE CHAT_ID = :room ORDER BY CHAT_DATE`,
+            `SELECT MEMBER_ID, COMMENT_TIME, CONTENT FROM CHAT_CONTENT WHERE CHAT_ID = :room ORDER BY COMMENT_TIME`,
             [room]
         );
 
@@ -134,7 +134,7 @@ wsServer.on('request', async function(request) {
 
     var connection = request.accept();   // 들어온 커넥션 객체
     await sendBeforUserList(connection, room); // 이미 들어와있는 사용자 목록을 전송
-    
+
     rooms.set(user,{user:user, room:room, con:connection});  //방 목록에 자신 추가
 
     msgSender(rooms.get(user), null, requestType.A);  // 로그인 타입으로 메시지 전송
