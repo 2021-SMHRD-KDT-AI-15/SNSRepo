@@ -123,37 +123,7 @@
             </div>
           </div>
         </div>
-        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-2">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-3">
-                <div class="u-container-layout u-container-layout-3">
-                  <h3 class="u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-default u-text-2">이 주소가맞나요?</h3>
-                  <div class="custom-expanded u-align-left u-border-2 u-border-grey-75 u-container-style u-group u-radius u-shape-round u-group-1">
-                    <div class="u-container-layout u-container-layout-4"><span class="u-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 54.757 54.757" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-df66"></use></svg><svg class="u-svg-content" viewBox="0 0 54.757 54.757" x="0px" y="0px" id="svg-df66" style="enable-background:new 0 0 54.757 54.757;"><g><path d="M27.557,12c-3.859,0-7,3.141-7,7s3.141,7,7,7s7-3.141,7-7S31.416,12,27.557,12z M27.557,24c-2.757,0-5-2.243-5-5
-		s2.243-5,5-5s5,2.243,5,5S30.314,24,27.557,24z"></path><path d="M40.94,5.617C37.318,1.995,32.502,0,27.38,0c-5.123,0-9.938,1.995-13.56,5.617c-6.703,6.702-7.536,19.312-1.804,26.952
-		L27.38,54.757L42.721,32.6C48.476,24.929,47.643,12.319,40.94,5.617z M41.099,31.431L27.38,51.243L13.639,31.4
-		C8.44,24.468,9.185,13.08,15.235,7.031C18.479,3.787,22.792,2,27.38,2s8.901,1.787,12.146,5.031
-		C45.576,13.08,46.321,24.468,41.099,31.431z"></path>
-</g></svg></span>
-                      <h5 class="u-text u-text-3"> 카카오맵으로 주소 받아서작성될곳</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-4">
-                <div class="u-container-layout u-container-layout-5">
-                  <h3 class="u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-default u-text-4">활동지역</h3>
-                  <div class="u-expanded-width u-grey-light-2 u-map u-map-1">
-                    <div class="embed-responsive">
-                      <iframe class="embed-responsive-item" src="https://maps.google.com/maps?output=embed&amp;q=Manhattan%2C%20New%20York&amp;z=10&amp;t=m" data-map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMk1hbmhhdHRhbiUyQyUyME5ldyUyMFlvcmslMjIlMkMlMjJ6b29tJTIyJTNBMTAlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <div class="u-border-5 u-border-custom-color-2 u-expanded-width u-line u-line-horizontal u-line-2"></div>
         <div class="u-container-style u-expanded-width u-group u-group-2">
           <div class="u-container-layout u-container-layout-6">
