@@ -163,10 +163,9 @@
     </style>
     <script>
       document.getElementById('chat_id').addEventListener('click', function() {
-          // Show the iframe by changing its display property
+          // 블록은 보여준다
           document.getElementById('chat_room').style.display = 'block';
-  
-          // Set the src attribute to load the content
+          // 클릭시 채팅창 jsp 로드
           document.getElementById('chat_room').src="./chat/static/index.jsp";
       });
     </script>
