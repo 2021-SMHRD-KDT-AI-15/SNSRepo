@@ -13,6 +13,7 @@ public class ChatDAO {
 	
 	ArrayList<ChatDTO> chat_room_list = new ArrayList<>();
 	
+	
 	public ArrayList<ChatDTO> chat_room_list(String user_id) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);

@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sns.db.MemberMapper">
 
-
 	<insert id="join" parameterType="sns.model.MemberDTO">
 		insert into basic_info(member_id, pw, name, mail, birth, img, dis, gender, rating_person, location) 
 		values(#{Member_id}, #{pw}, #{name}, #{mail}, #{birth}, null, #{dis}, #{gender}, 50, #{location} )

@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class SqlSessionManager {
 
 	static SqlSessionFactory sqlSessionFactory;
-	
+
 	static {
 		String resource = "sns/db/Mybatis-config.xml";
 		InputStream inputStream;
@@ -20,12 +20,9 @@ public class SqlSessionManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
-	
-	
+
 	public static SqlSessionFactory getFactiory() {
 		return sqlSessionFactory;
 	}

@@ -19,28 +19,27 @@ public class LoginService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		  request.setCharacterEncoding("UTF-8");
-		  HttpSession session = request.getSession();
+		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
 
-	        String Member_id = request.getParameter("Member_id");
-	        String pw = request.getParameter("pw");
-	        
-	        MemberDAO dao = new MemberDAO();
-	        MemberDTO dto = new MemberDTO(Member_id, pw);
+		String Member_id = request.getParameter("Member_id");
+		String pw = request.getParameter("pw");
 
-	        MemberDTO result = dao.login(dto);
+		MemberDAO dao = new MemberDAO();
+		MemberDTO dto = new MemberDTO(Member_id, pw);
 
-	        System.out.println(result);
-	        
-	        if (result != null) {
-	        	// 여기서 셋어트리로 베이직 인포 다 불러와야함
-	        	// 베이직 인포에서 받아와서 로그인서비로 가져와야함??
-	        	session.setAttribute("user_id", Member_id);
-	            response.sendRedirect("BoardDetail");
-	            
-	        } else {
-	            response.sendRedirect("fail.html");
-	        }
+		MemberDTO result = dao.login(dto);
+
+		System.out.println(result);
+
+		if (result != null) {
+			session.setAttribute("user_id", Member_id);
+			
+			response.sendRedirect("BoardDetail");
+		} else {
+			response.sendRedirect("fail.html");
+		}
 
 	}
 

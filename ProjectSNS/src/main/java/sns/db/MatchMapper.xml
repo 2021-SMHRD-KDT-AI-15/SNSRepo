@@ -97,8 +97,4 @@
 		delete from request where group_id=#{group_id} and req_group_id=#{req_id}
 	</delete>
 	
-	<insert id="gtg_leader_chat" parameterType="sns.model.MatchDTO">
-		
-	</insert>
-	
 </mapper>

@@ -13,12 +13,13 @@ public class BoardDAO {
 
 	ArrayList<BoardDTO> b_list = new ArrayList<>();
 
+	
 	public int upload(BoardDTO dto) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 		int cnt = sqlSession.insert("upload", dto);
-		
+
 		System.out.println(cnt);
 
 		sqlSession.close();
@@ -26,6 +27,7 @@ public class BoardDAO {
 		return cnt;
 	}
 
+	
 	public BoardDTO detail(int num) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -37,8 +39,9 @@ public class BoardDAO {
 		return dto;
 	}
 
+	
 	public ArrayList<BoardDTO> list() {
-		
+
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 		b_list = (ArrayList) sqlSession.selectList("list");
@@ -49,6 +52,7 @@ public class BoardDAO {
 
 	}
 
+	
 	public int count() {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);

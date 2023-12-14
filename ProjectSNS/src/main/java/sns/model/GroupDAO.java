@@ -15,9 +15,11 @@ public class GroupDAO {
 	ArrayList<GroupMemberDTO> group_member_list = new ArrayList<>();
 
 	public int newGroup(GroupDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		int cnt = sqlSession.insert("new_group_1", dto);
+		
 		sqlSession.insert("new_group_2", dto);
 		sqlSession.insert("new_group_3", dto);
 		
@@ -27,6 +29,7 @@ public class GroupDAO {
 	}
 
 	public ArrayList<GroupDTO> group_list(String user_id) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		group_list = (ArrayList) sqlSession.selectList("my_group_list", user_id);
@@ -37,6 +40,7 @@ public class GroupDAO {
 	}
 
 	public GroupDTO get_group_info(String group_id) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		GroupDTO group_main = sqlSession.selectOne("get_group_info", group_id);
@@ -47,6 +51,7 @@ public class GroupDAO {
 	}
 
 	public ArrayList<GroupMemberDTO> get_group_member_list(String group_id) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		group_member_list = (ArrayList) sqlSession.selectList("get_group_member_list", group_id);
@@ -57,6 +62,7 @@ public class GroupDAO {
 	}
 
 	public void group_member_kick(GroupDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		sqlSession.delete("group_member_kick", dto);
@@ -65,6 +71,7 @@ public class GroupDAO {
 	}
 
 	public int group_id_change(GroupChangeDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		int cnt = sqlSession.update("group_id_change", dto);
@@ -75,6 +82,7 @@ public class GroupDAO {
 	}
 
 	public void group_info_change(GroupChangeDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		sqlSession.update("group_info_change", dto);
@@ -83,6 +91,7 @@ public class GroupDAO {
 	}
 
 	public void group_withdrawal(GroupDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		sqlSession.delete("group_withdrawal", dto);
@@ -91,6 +100,7 @@ public class GroupDAO {
 	}
 
 	public void group_dissolve(String group_id) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		sqlSession.delete("group_dissolve_1", group_id);

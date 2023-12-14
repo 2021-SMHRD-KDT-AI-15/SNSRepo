@@ -11,10 +11,14 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LogoutService")
 public class LogoutService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.invalidate();
+
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
+
 		response.sendRedirect("BoardDetail");
 	}
 

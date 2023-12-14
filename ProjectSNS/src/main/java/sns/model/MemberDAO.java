@@ -9,7 +9,6 @@ public class MemberDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactiory();
 	
-	//회원가입 메소드
 	public int join(MemberDTO dto) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -21,9 +20,6 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	
-	
-	//로그인 메소드
 	public MemberDTO login(MemberDTO dto) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true); 
@@ -32,7 +28,6 @@ public class MemberDAO {
 		
 		System.out.println("DAO login 상태");
 		System.out.println(result);
-		
 		
 		sqlSession.close();
 		
