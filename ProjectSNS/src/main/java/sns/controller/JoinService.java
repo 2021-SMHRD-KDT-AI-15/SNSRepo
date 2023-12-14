@@ -32,18 +32,16 @@ public class JoinService extends HttpServlet {
 		String location = request.getParameter("location");
 		String rating_person = request.getParameter("rating_person");
 
-		
 		MemberDAO dao = new MemberDAO();
 		MemberDTO dto = new MemberDTO(Member_id, pw, name, mail, birth, img, dis, gender, rating_person, location);
+		
 		int result = dao.join(dto);
-		
-		System.out.println("result : " +  result);
-		
-		if(result > 0) {
-			
-			
+
+		System.out.println("result : " + result);
+
+		if (result > 0) {
 			response.sendRedirect("Login.jsp");
-		}else {
+		} else {
 			response.sendRedirect("Login.jsp");
 		}
 

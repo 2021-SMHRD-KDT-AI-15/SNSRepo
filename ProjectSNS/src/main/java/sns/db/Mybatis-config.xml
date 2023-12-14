@@ -16,7 +16,6 @@
   </environments>
   
   <mappers>
-    <!-- 후에 xml파일 여기에 추가 -->
     <mapper resource="sns/db/MemberMapper.xml"/>
     <mapper resource="sns/db/BoardMapper.xml"/>
     <mapper resource="sns/db/MatchMapper.xml"/>
@@ -26,5 +25,3 @@
     <mapper resource="sns/db/ChatMapper.xml"/>
   </mappers>
 </configuration>
-
-<!-- DB서버 연결아직 안했음!!! -->

@@ -9,9 +9,10 @@ import sns.db.SqlSessionManager;
 
 public class commentDAO {
 
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactiory();
+	
 	ArrayList<commentDTO> b_list = new ArrayList<>();
 	ArrayList<commentDTO> c_list = new ArrayList<>();
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactiory();
 
 	public int c_upload(commentDTO dto) {
 

@@ -33,7 +33,7 @@ public class BoardDetail extends HttpServlet {
 		request.setAttribute("c_result", c_list);
 		RequestDispatcher rd = request.getRequestDispatcher("RBoardMain.jsp");
 		rd.forward(request, response);
-		
+
 	}
 
 }

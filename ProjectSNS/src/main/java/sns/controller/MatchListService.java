@@ -16,30 +16,35 @@ import sns.model.MatchDTO;
 @WebServlet("/MatchListService")
 public class MatchListService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+
 		String gender = request.getParameter("gender");
 		int rating = 0;
 		String area = request.getParameter("area");
 		String interest = request.getParameter("interest");
-		
+
 		MatchDAO dao = new MatchDAO();
-		
+
 		MatchDTO p_dto = new MatchDTO(gender, rating, area, interest);
 		MatchDTO g_dto = new MatchDTO(rating, area, interest);
-		
+
 		ArrayList<MatchDTO> p_list = new ArrayList<>();
 		ArrayList<MatchDTO> g_list = new ArrayList<>();
 
 		p_list = dao.user_list(p_dto);
 		g_list = dao.group_list(g_dto);
-		
+
 		request.setAttribute("p_list", p_list);
 		request.setAttribute("g_list", g_list);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("MatchList.jsp");
+		
 		rd.forward(request, response);
-				
+
 	}
 
 }
