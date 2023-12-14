@@ -126,7 +126,7 @@
               <div class="u-container-layout u-similar-container u-container-layout-2">
                 <img src="images/music-album-new-single-template_23-2148879485.jpg" alt="" class="u-image u-image-round u-preserve-proportions u-radius u-image-2" data-image-width="626" data-image-height="626">
                 <h2 class="u-text u-text-4">언제나 최선을 다해</h2>
-                <h5 class="u-custom-font u-font-pt-sans u-text u-text-5" id = "chat_id"><u>우리팀 엘리트</u></h5>
+                <h5 class="u-custom-font u-font-pt-sans u-text u-text-2" id = "chat_id"><u>우리팀 엘리트</u></h5>
                 <!-- <a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-4"></a> -->
                 <p class="u-text-99">cjs1577</p>
               </div>
@@ -135,7 +135,7 @@
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <img src="images/square-music-cover-with-vintage-collage_23-2148913436.jpg" alt="" class="u-image u-image-round u-preserve-proportions u-radius u-image-3" data-image-width="626" data-image-height="626">
                 <h2 class="u-text u-text-7">예시를 뭘로 하지...</h2>
-                <h5 class="u-custom-font u-font-pt-sans u-text u-text-8" id = "chat_id"><u>저번에 사탕주신 분</u></h5>
+                <h5 class="u-custom-font u-font-pt-sans u-text u-text-2" id = "chat_id"><u>저번에 사탕주신 분</u></h5>
                 <!-- <a href="https://nicepage.best" class="u-active-white u-border-1 u-border-white u-btn u-button-style u-hover-white u-none u-text-active-palette-5-dark-3 u-text-body-alt-color u-text-hover-palette-5-dark-3 u-btn-5"></a> -->
                 <p class="u-text-99">jmh2929</p>
               </div>

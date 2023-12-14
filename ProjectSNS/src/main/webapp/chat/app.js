@@ -45,7 +45,6 @@ const requestType = {  //메시지 타입
     D:'beforList'
 }
 app.use('/css', express.static('./static/css'));
-app.use('/js', express.static('./static/js'));
 
 async function saveChatMessage(room, chatContent, chatDate, attachment, memberId) {
     let connection;
@@ -143,7 +142,7 @@ wsServer.on('request', async function(request) {
         if (message.type === 'utf8') {
             const chatContent = message.utf8Data;
             const chatDate = new Date().toISOString();
-            const attachment = ''; // 추후 개량할 것
+            const attachment = ''; // 필요에 따라 변경
             const memberId = user; // ID
     
             // OracleDB에 저장
@@ -156,7 +155,7 @@ wsServer.on('request', async function(request) {
 
     connection.on('close', function(reasonCode, description) {   // 커넥션이 끊기면
         msgSender(rooms.get(user), null, requestType.C).then((callbak)=>{  // 방에서 나가는 메세지
-            rooms.delete(user);  // 방 ID 목록에서 삭제하고 싶을 때
+            rooms.delete(user);  // 방 ID 목록에서 삭제
         }).catch((err)=>{
             console.log(err);
         });
@@ -174,9 +173,9 @@ function NUL(obj){
 //메시지를 보내는 함수
 function msgSender(identify, message, type){
     return new Promise((resolve, reject)=>{
-        for(let target of rooms.entries()) {  //방 목록 객체를 반복문을 활용해 발송
-            if(identify.room == target[1].room){  //같은방에 있는 사람이면 전송
-                //타입별 전송 구간(최초접속,메시지전송,방나감)
+        for(let target of rooms.entries()) {  // 방 목록 객체를 반복문을 활용해 발송
+            if(identify.room == target[1].room){  // 같은방에 있는 사람이면 전송
+                // 타입별 접속 동작 구분 (접속,메시지,접속 끊김)
                 if (type == requestType.A ) {  
                     var res = JSON.stringify({param:'님이 접속하였습니다',fromUser:identify.user, type:type});
                     target[1].con.sendUTF(res);
