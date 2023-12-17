@@ -1,5 +1,6 @@
+# :pushpin: goQuality
 ![게더업-removebg-preview](https://github.com/2021-SMHRD-KDT-AI-15/SNSRepo/assets/144158751/92431374-5c7e-400a-ad1a-c6490b97dfe3)
->SNS 기반 매칭 및 그룹 지원 서비스
+><strong>SNS 기반 매칭 및 그룹 지원 서비스</strong>
 
 </br>
 
