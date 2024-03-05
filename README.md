@@ -392,4 +392,3 @@ public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
     
 </br>
 
-이거말고 팀원소개 같은거에 자세한 역할이나 뭘 개발했는지 적기
